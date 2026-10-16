@@ -3,28 +3,26 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-<meta name="theme-color" content="#080B10" />
+<meta name="theme-color" content="#070A0F" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<title>Kako Guitar — Yousician & GuitarTuna Edition</title>
+<title>Kako Guitar — Yousician & GuitarTuna Revolution</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 :root {
-  /* Paleta Oscura Moderna estilo Yousician / GuitarTuna */
   --bg-deep: #070A0F;
   --bg-surface: #0E131B;
   --bg-card: #141B26;
   --bg-card-alt: #1A2332;
-  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-subtle: rgba(255, 255, 255, 0.08);
   --border-glow: rgba(0, 230, 118, 0.35);
 
-  /* Acentos Principales */
   --accent-green: #00E676;
   --accent-green-dim: rgba(0, 230, 118, 0.14);
   --accent-blue: #00B0FF;
@@ -32,13 +30,13 @@
   --danger: #FF5252;
   --warning: #FFB300;
 
-  /* Codificación Estricta de Dedos (Yousician Standard) */
+  /* Codificación de Dedos Estilo Yousician */
+  --finger-0: #E2E8F0; /* Al aire: Blanco/Plata */
   --finger-1: #00B0FF; /* Dedo 1: Índice - Azul Neón */
   --finger-2: #00E676; /* Dedo 2: Medio - Verde Vibrante */
   --finger-3: #FFB300; /* Dedo 3: Anular - Naranja/Amarillo */
   --finger-4: #D500F9; /* Dedo 4: Meñique - Morado */
 
-  /* Texto */
   --text-main: #F8FAFC;
   --text-secondary: #94A3B8;
   --text-muted: #64748B;
@@ -49,9 +47,7 @@
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0; padding: 0; box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   user-select: none;
 }
@@ -60,8 +56,8 @@ body {
   font-family: 'Plus Jakarta Sans', sans-serif;
   background-color: var(--bg-deep);
   background-image: 
-    radial-gradient(circle at 15% 10%, rgba(0, 176, 255, 0.07), transparent 35%),
-    radial-gradient(circle at 85% 90%, rgba(0, 230, 118, 0.07), transparent 35%);
+    radial-gradient(circle at 15% 10%, rgba(0, 176, 255, 0.08), transparent 35%),
+    radial-gradient(circle at 85% 90%, rgba(0, 230, 118, 0.08), transparent 35%);
   color: var(--text-main);
   min-height: 100vh;
   display: flex;
@@ -71,95 +67,52 @@ body {
 
 /* ==================== NAVEGACIÓN LATERAL Y MÓVIL ==================== */
 .sidebar {
-  width: 240px;
-  background: rgba(14, 19, 27, 0.92);
+  width: 245px;
+  background: rgba(14, 19, 27, 0.95);
   backdrop-filter: blur(20px);
   border-right: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
-  padding: 24px 16px;
+  padding: 22px 16px;
   position: fixed;
   top: 0; left: 0; bottom: 0;
   z-index: 100;
 }
 
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 0 8px 24px;
+  display: flex; align-items: center; gap: 12px;
+  padding: 0 8px 20px;
   border-bottom: 1px solid var(--border-subtle);
-  margin-bottom: 20px;
+  margin-bottom: 18px;
 }
 
 .brand-logo {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
+  width: 42px; height: 42px; border-radius: 12px;
   background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #05080c;
-  font-size: 20px;
-  font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  color: #05080c; font-size: 20px; font-weight: 800;
   box-shadow: 0 0 20px rgba(0, 230, 118, 0.35);
 }
 
-.brand-title h1 {
-  font-size: 18px;
-  font-weight: 800;
-  letter-spacing: -0.4px;
-}
+.brand-title h1 { font-size: 18px; font-weight: 800; letter-spacing: -0.4px; }
+.brand-title span { font-size: 11px; font-weight: 700; color: var(--accent-green); text-transform: uppercase; letter-spacing: 0.8px; }
 
-.brand-title span {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--accent-green);
-  text-transform: uppercase;
-  letter-spacing: 0.8px;
-}
-
-.nav-menu {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  flex: 1;
-}
+.nav-menu { display: flex; flex-direction: column; gap: 8px; flex: 1; }
 
 .nav-btn {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 14px 16px;
-  border-radius: var(--radius-md);
-  background: transparent;
-  border: 1px solid transparent;
-  color: var(--text-secondary);
-  font-family: inherit;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  text-align: left;
+  display: flex; align-items: center; gap: 14px;
+  padding: 13px 16px; border-radius: var(--radius-md);
+  background: transparent; border: 1px solid transparent;
+  color: var(--text-secondary); font-family: inherit;
+  font-size: 14px; font-weight: 600; cursor: pointer;
+  transition: all 0.2s ease; text-align: left; width: 100%;
 }
-
-.nav-btn i {
-  font-size: 18px;
-  width: 22px;
-  text-align: center;
-}
-
-.nav-btn:hover {
-  background: rgba(255, 255, 255, 0.03);
-  color: var(--text-main);
-}
-
+.nav-btn i { font-size: 18px; width: 22px; text-align: center; }
+.nav-btn:hover { background: rgba(255, 255, 255, 0.04); color: var(--text-main); }
 .nav-btn.active {
   background: linear-gradient(90deg, var(--accent-green-dim), rgba(0, 176, 255, 0.05));
   color: var(--accent-green);
-  border-color: rgba(0, 230, 118, 0.28);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-color: rgba(0, 230, 118, 0.3);
 }
 
 .finger-legend-box {
@@ -168,41 +121,19 @@ body {
   border-radius: var(--radius-md);
   padding: 14px;
 }
-
 .finger-legend-box h4 {
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.7px;
-  color: var(--text-secondary);
-  margin-bottom: 10px;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.7px;
+  color: var(--text-secondary); margin-bottom: 10px;
 }
-
-.legend-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-}
-
-.legend-pill {
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  font-size: 12px;
-  font-weight: 600;
-}
+.legend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.legend-pill { display: flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 600; }
 
 .dot {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  font-weight: 800;
-  color: #06090E;
-  flex-shrink: 0;
+  width: 20px; height: 20px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 800; color: #06090E; flex-shrink: 0;
 }
+.dot.f0 { background: var(--finger-0); }
 .dot.f1 { background: var(--finger-1); box-shadow: 0 0 8px rgba(0, 176, 255, 0.5); }
 .dot.f2 { background: var(--finger-2); box-shadow: 0 0 8px rgba(0, 230, 118, 0.5); }
 .dot.f3 { background: var(--finger-3); box-shadow: 0 0 8px rgba(255, 179, 0, 0.5); }
@@ -210,570 +141,233 @@ body {
 
 /* ==================== CONTENEDOR PRINCIPAL ==================== */
 .main-area {
-  margin-left: 240px;
+  margin-left: 245px;
   flex: 1;
-  padding: 24px 32px;
+  padding: 20px 28px;
   max-width: 1440px;
   width: 100%;
 }
 
 .top-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 16px; margin-bottom: 18px; flex-wrap: wrap;
 }
+.header-title h2 { font-size: 22px; font-weight: 800; letter-spacing: -0.4px; }
+.header-title p { font-size: 13px; color: var(--text-secondary); }
+.header-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 
-.header-title h2 {
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: -0.4px;
-}
-
-.header-title p {
-  font-size: 13px;
-  color: var(--text-secondary);
-}
-
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-/* ==================== BOTONES Y COMPONENTES ==================== */
 .btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 11px 18px;
-  border-radius: var(--radius-sm);
-  font-family: inherit;
-  font-size: 13.5px;
-  font-weight: 700;
-  border: 1px solid transparent;
-  cursor: pointer;
-  transition: all 0.18s ease;
-  min-height: 44px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 10px 16px; border-radius: var(--radius-sm);
+  font-family: inherit; font-size: 13px; font-weight: 700;
+  border: 1px solid transparent; cursor: pointer;
+  transition: all 0.18s ease; min-height: 42px;
 }
+.btn:active { transform: scale(0.96); }
+.btn-primary { background: var(--accent-green); color: #04120B; box-shadow: 0 0 18px rgba(0, 230, 118, 0.3); }
+.btn-blue { background: var(--accent-blue); color: #041019; box-shadow: 0 0 18px rgba(0, 176, 255, 0.3); }
+.btn-surface { background: var(--bg-card); color: var(--text-main); border-color: var(--border-subtle); }
+.btn-surface:hover { background: var(--bg-card-alt); }
+.btn-surface.active-toggle { border-color: var(--accent-green); color: var(--accent-green); background: var(--accent-green-dim); }
 
-.btn:active {
-  transform: scale(0.96);
-}
-
-.btn-primary {
-  background: var(--accent-green);
-  color: #04120B;
-  box-shadow: 0 0 20px rgba(0, 230, 118, 0.3);
-}
-.btn-primary:hover {
-  background: #19F588;
-}
-
-.btn-blue {
-  background: var(--accent-blue);
-  color: #041019;
-  box-shadow: 0 0 20px rgba(0, 176, 255, 0.3);
-}
-
-.btn-surface {
-  background: var(--bg-card);
-  color: var(--text-main);
-  border-color: var(--border-subtle);
-}
-.btn-surface:hover {
-  background: var(--bg-card-alt);
-  border-color: rgba(255, 255, 255, 0.16);
-}
-
-.btn-surface.active-mic {
-  border-color: var(--accent-green);
-  color: var(--accent-green);
-  background: var(--accent-green-dim);
-}
-
-.view-section {
-  display: none;
-  animation: viewFade 0.25s ease;
-}
-.view-section.active {
-  display: block;
-}
-
-@keyframes viewFade {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+.view-section { display: none; animation: viewFade 0.25s ease; }
+.view-section.active { display: block; }
+@keyframes viewFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
 .card {
   background: var(--bg-card);
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-lg);
-  padding: 22px;
-  margin-bottom: 20px;
-}
-
-.card-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 16px;
-  flex-wrap: wrap;
-}
-
-.card-top h3 {
-  font-size: 16px;
-  font-weight: 700;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-/* ==================== SECCIÓN 1: PRÁCTICA INTERACTIVA (YOUSICIAN) ==================== */
-.yousician-stage {
-  background: linear-gradient(180deg, #111823 0%, #090D14 100%);
-  border: 1px solid rgba(0, 176, 255, 0.25);
-  border-radius: var(--radius-lg);
   padding: 20px;
-  margin-bottom: 22px;
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  margin-bottom: 18px;
+}
+.card-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 14px; flex-wrap: wrap; }
+.card-top h3 { font-size: 15.5px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+
+/* ==================== FILTRO DE GÉNEROS Y CANCIONES ==================== */
+.genre-bar {
+  display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; margin-bottom: 12px;
+}
+.genre-tab {
+  padding: 7px 14px; border-radius: 999px; font-size: 12.5px; font-weight: 700;
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  color: var(--text-secondary); cursor: pointer; white-space: nowrap; transition: 0.2s;
+}
+.genre-tab.active {
+  background: var(--accent-green); color: #04120B; border-color: var(--accent-green);
+}
+
+.song-selector-row {
+  display: flex; gap: 10px; overflow-x: auto; padding-bottom: 6px; margin-bottom: 14px;
+}
+.song-chip {
+  background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle);
+  border-radius: 12px; padding: 10px 14px; min-width: 195px;
+  cursor: pointer; transition: all 0.2s;
+}
+.song-chip:hover { background: rgba(255,255,255,0.06); }
+.song-chip.active {
+  background: var(--accent-blue-dim); border-color: var(--accent-blue);
+  box-shadow: 0 0 15px rgba(0, 176, 255, 0.2);
+}
+.song-chip h4 { font-size: 13.5px; font-weight: 700; color: var(--text-main); }
+.song-chip p { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
+
+/* ==================== ESCENARIO YOUSICIAN (HIGHWAY) ==================== */
+.yousician-stage {
+  background: linear-gradient(180deg, #101722 0%, #070A10 100%);
+  border: 1px solid rgba(0, 230, 118, 0.28);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  margin-bottom: 18px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
 }
 
 .stage-hud {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 14px;
-  flex-wrap: wrap;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 12px; margin-bottom: 12px; flex-wrap: wrap;
 }
 
-.chord-selector-pills {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
+/* Banner de Instrucción en Vivo Paso a Paso */
+.live-instruction-banner {
+  background: linear-gradient(90deg, rgba(0,176,255,0.14), rgba(0,230,118,0.14));
+  border: 1px solid rgba(0, 230, 118, 0.35);
+  border-radius: 12px;
+  padding: 10px 16px;
+  margin-bottom: 12px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap;
 }
-
-.chord-pill {
-  padding: 8px 16px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
-  font-weight: 700;
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.18s ease;
-}
-
-.chord-pill.active {
-  background: var(--accent-blue-dim);
-  color: var(--accent-blue);
-  border-color: var(--accent-blue);
-  box-shadow: 0 0 14px rgba(0, 176, 255, 0.28);
-}
+.instruction-main { font-size: 14px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+.instruction-sub { font-size: 12px; color: var(--accent-green); font-family: 'JetBrains Mono', monospace; font-weight: 700; }
 
 #highwayCanvas {
   width: 100%;
-  height: 230px;
+  height: 235px;
   display: block;
   border-radius: var(--radius-md);
-  background: #06080D;
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: #05070B;
+  border: 1px solid rgba(255, 255, 255, 0.07);
 }
 
 .stage-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 14px;
-  gap: 14px;
-  flex-wrap: wrap;
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 14px; gap: 12px; flex-wrap: wrap;
 }
 
-.finger-bar-inline {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.03);
-  padding: 8px 14px;
-  border-radius: 999px;
-  border: 1px solid var(--border-subtle);
-}
-
+/* ==================== GUÍA DOBLE MANO (DIAPASÓN + MANO DERECHA) ==================== */
 .practice-split {
   display: grid;
-  grid-template-columns: 1.25fr 1fr;
-  gap: 20px;
-}
-
-/* Diapasón Interactivo Horizontal */
-.fretboard-wrapper {
-  background: #0A0E15;
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 16px;
-  overflow-x: auto;
-}
-
-.string-guide-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.string-guide-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 14px;
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.025);
-  border: 1px solid var(--border-subtle);
-  font-size: 13px;
-}
-
-.string-guide-row.muted-string {
-  opacity: 0.45;
-}
-
-/* ==================== SECCIÓN 2: AFINADOR GUITARTUNA ==================== */
-.tuner-layout {
-  display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 22px;
-  align-items: stretch;
-}
-
-.guitartuna-meter-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  text-align: center;
-  padding: 28px 22px;
-  position: relative;
-  overflow: hidden;
-}
-
-/* Regla horizontal y aguja estilo GuitarTuna */
-.gt-scale-wrapper {
-  width: 100%;
-  max-width: 520px;
-  position: relative;
-  padding: 26px 0 18px;
-  margin: 10px 0;
-}
-
-.gt-center-line {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 3px;
-  transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 4px;
-  transition: background 0.2s, box-shadow 0.2s;
-}
-
-.gt-center-line.in-tune {
-  background: var(--accent-green);
-  box-shadow: 0 0 18px var(--accent-green);
-}
-
-.gt-ticks {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  height: 44px;
-  padding: 0 12px;
-}
-
-.gt-tick {
-  width: 2px;
-  height: 14px;
-  background: rgba(255, 255, 255, 0.14);
-  border-radius: 2px;
-}
-.gt-tick.major {
-  height: 26px;
-  background: rgba(255, 255, 255, 0.28);
-}
-.gt-tick.center {
-  height: 38px;
-  width: 4px;
-  background: var(--accent-green);
-}
-
-/* Indicador móvil (Burbuja GuitarTuna) */
-.gt-needle-bubble {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: var(--bg-card-alt);
-  border: 3px solid var(--text-secondary);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 700;
-  font-size: 16px;
-  color: var(--text-main);
-  transition: left 0.1s ease-out, border-color 0.2s, background 0.2s, box-shadow 0.2s;
-  z-index: 5;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.55);
-}
-
-.gt-needle-bubble.in-tune {
-  background: var(--accent-green);
-  border-color: #FFFFFF;
-  color: #03140A;
-  box-shadow: 0 0 30px var(--accent-green);
-}
-
-.gt-needle-bubble.needs-adjust {
-  border-color: var(--accent-blue);
-  box-shadow: 0 0 20px rgba(0, 176, 255, 0.35);
-}
-
-/* Indicador Grande de Nota y Tensión (+Tensar / -Destensar) */
-.detected-note-badge {
-  font-size: 56px;
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -2px;
-  margin: 8px 0 4px;
-  color: var(--text-main);
-  transition: color 0.2s;
-}
-.detected-note-badge.in-tune {
-  color: var(--accent-green);
-  text-shadow: 0 0 24px rgba(0, 230, 118, 0.45);
-}
-
-.freq-readout {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 14px;
-  color: var(--text-secondary);
-  margin-bottom: 18px;
-}
-
-.tension-instruction-box {
-  width: 100%;
-  max-width: 420px;
-  padding: 16px 20px;
-  border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-subtle);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 14px;
-  min-height: 74px;
-  transition: all 0.2s ease;
-}
-
-.tension-instruction-box.state-tuned {
-  background: var(--accent-green-dim);
-  border-color: var(--accent-green);
-  color: var(--accent-green);
-}
-
-.tension-instruction-box.state-tensar {
-  background: rgba(0, 176, 255, 0.12);
-  border-color: var(--accent-blue);
-  color: var(--accent-blue);
-}
-
-.tension-instruction-box.state-destensar {
-  background: rgba(255, 179, 0, 0.12);
-  border-color: var(--warning);
-  color: var(--warning);
-}
-
-.tension-number {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 28px;
-  font-weight: 800;
-}
-
-.tension-label {
-  font-size: 20px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.6px;
-}
-
-/* Clavijero de Guitarra Interactivo (6 Cuerdas) */
-.headstock-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.headstock-grid {
-  display: grid;
-  grid-template-columns: 1fr 110px 1fr;
-  gap: 12px;
-  align-items: center;
-  width: 100%;
-  max-width: 390px;
-  margin: 12px auto;
-}
-
-.pegs-column {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.string-peg-btn {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 12px 14px;
-  border-radius: var(--radius-md);
-  background: var(--bg-card-alt);
-  border: 2px solid var(--border-subtle);
-  color: var(--text-main);
-  cursor: pointer;
-  transition: all 0.18s ease;
-  font-family: inherit;
-}
-
-.string-peg-btn:hover {
-  border-color: rgba(255, 255, 255, 0.25);
-}
-
-.string-peg-btn.active-target {
-  border-color: var(--accent-blue);
-  background: var(--accent-blue-dim);
-  box-shadow: 0 0 18px rgba(0, 176, 255, 0.25);
-}
-
-.string-peg-btn.tuned-ok {
-  border-color: var(--accent-green);
-  background: var(--accent-green-dim);
-}
-
-.peg-note {
-  font-size: 17px;
-  font-weight: 800;
-}
-
-.peg-hz {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: var(--text-secondary);
-}
-
-.headstock-neck {
-  height: 230px;
-  background: linear-gradient(90deg, #161C26 0%, #202938 50%, #161C26 100%);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  border-radius: 28px 28px 10px 10px;
-  position: relative;
-  display: flex;
-  justify-content: space-evenly;
-  padding: 16px 12px 0;
-  box-shadow: inset 0 10px 25px rgba(0,0,0,0.6);
-}
-
-.neck-string-line {
-  height: 100%;
-  background: rgba(255, 255, 255, 0.22);
-  border-radius: 2px;
-  transition: background 0.2s, box-shadow 0.2s;
-}
-.neck-string-line.active {
-  background: var(--accent-blue);
-  box-shadow: 0 0 10px var(--accent-blue);
-}
-.neck-string-line.tuned {
-  background: var(--accent-green);
-  box-shadow: 0 0 12px var(--accent-green);
-}
-
-/* ==================== SECCIÓN 3: BIBLIOTECA DE ACORDES ==================== */
-.chords-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: 1.35fr 0.85fr;
   gap: 18px;
 }
 
-.chord-box-card {
-  background: var(--bg-card);
+.fretboard-svg-box {
+  width: 100%;
+  overflow-x: auto;
+  background: #090D14;
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  border-radius: var(--radius-md);
+  padding: 12px;
+}
+
+.pluck-visualizer {
+  display: flex; flex-direction: column; gap: 7px;
+}
+.pluck-string-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 8px 12px; border-radius: 9px;
+  background: rgba(255,255,255,0.025);
+  border: 1px solid var(--border-subtle);
+  font-size: 12.5px; transition: all 0.15s;
+}
+.pluck-string-row.pluck-now {
+  background: var(--accent-green-dim);
+  border-color: var(--accent-green);
+  transform: scale(1.02);
+  box-shadow: 0 0 14px rgba(0, 230, 118, 0.25);
+}
+
+/* ==================== AFINADOR GUITARTUNA ==================== */
+.tuner-layout {
+  display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 20px;
+}
+.guitartuna-meter-card {
+  display: flex; flex-direction: column; justify-content: space-between;
+  align-items: center; text-align: center; padding: 26px 20px;
+}
+.gt-scale-wrapper { width: 100%; max-width: 480px; position: relative; padding: 24px 0; margin: 8px 0; }
+.gt-center-line {
+  position: absolute; top: 0; bottom: 0; left: 50%; width: 3px;
+  transform: translateX(-50%); background: rgba(255,255,255,0.18);
+}
+.gt-center-line.in-tune { background: var(--accent-green); box-shadow: 0 0 15px var(--accent-green); }
+.gt-ticks { display: flex; justify-content: space-between; align-items: center; width: 100%; height: 40px; padding: 0 12px; }
+.gt-tick { width: 2px; height: 14px; background: rgba(255,255,255,0.15); }
+.gt-tick.major { height: 24px; background: rgba(255,255,255,0.3); }
+.gt-tick.center { height: 36px; width: 4px; background: var(--accent-green); }
+
+.gt-needle-bubble {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 60px; height: 60px; border-radius: 50%;
+  background: var(--bg-card-alt); border: 3px solid var(--accent-blue);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 15px;
+  transition: left 0.1s ease-out; z-index: 5;
+}
+.gt-needle-bubble.in-tune { background: var(--accent-green); color: #04120B; border-color: #fff; box-shadow: 0 0 25px var(--accent-green); }
+
+.detected-note-badge { font-size: 52px; font-weight: 800; line-height: 1; margin: 6px 0; }
+.freq-readout { font-family: 'JetBrains Mono', monospace; font-size: 13px; color: var(--text-secondary); margin-bottom: 14px; }
+
+.tension-instruction-box {
+  width: 100%; max-width: 400px; padding: 14px 18px;
+  border-radius: var(--radius-md); background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border-subtle); font-weight: 800; font-size: 16px;
+}
+
+.headstock-grid {
+  display: grid; grid-template-columns: 1fr 90px 1fr; gap: 12px;
+  align-items: center; width: 100%; max-width: 370px; margin: 12px auto;
+}
+.pegs-column { display: flex; flex-direction: column; gap: 12px; }
+.string-peg-btn {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 11px 14px; border-radius: var(--radius-md);
+  background: var(--bg-card-alt); border: 2px solid var(--border-subtle);
+  color: var(--text-main); cursor: pointer; font-weight: 700;
+}
+.string-peg-btn.active-target { border-color: var(--accent-blue); background: var(--accent-blue-dim); }
+.headstock-neck {
+  height: 210px; background: #161C26; border: 2px solid rgba(255,255,255,0.12);
+  border-radius: 24px 24px 8px 8px; display: flex; justify-content: space-evenly; padding: 14px 10px 0;
+}
+.neck-string-line { width: 2px; height: 100%; background: rgba(255,255,255,0.25); }
+
+/* ==================== BIBLIOTECA DE ACORDES ==================== */
+.chords-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 16px;
+}
+.chord-box-card {
+  background: var(--bg-card); border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg); padding: 18px; text-align: center; cursor: pointer;
   transition: transform 0.18s ease, border-color 0.18s ease;
-  cursor: pointer;
 }
+.chord-box-card:hover { transform: translateY(-3px); border-color: var(--accent-green); }
 
-.chord-box-card:hover {
-  transform: translateY(-3px);
-  border-color: rgba(0, 230, 118, 0.4);
-}
-
-/* ==================== RESPONSIVE TABLET Y MÓVIL ==================== */
 @media (max-width: 1024px) {
-  .practice-split,
-  .tuner-layout {
-    grid-template-columns: 1fr;
-  }
+  .practice-split, .tuner-layout { grid-template-columns: 1fr; }
 }
-
 @media (max-width: 860px) {
   .sidebar {
-    width: 100%;
-    height: auto;
-    top: auto;
-    bottom: 0;
-    flex-direction: row;
-    padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
-    border-right: none;
-    border-top: 1px solid var(--border-subtle);
+    width: 100%; height: auto; top: auto; bottom: 0;
+    flex-direction: row; padding: 8px 10px calc(8px + env(safe-area-inset-bottom));
+    border-right: none; border-top: 1px solid var(--border-subtle);
   }
-  .brand, .finger-legend-box {
-    display: none;
-  }
-  .nav-menu {
-    flex-direction: row;
-    justify-content: space-around;
-    width: 100%;
-  }
-  .nav-btn {
-    flex-direction: column;
-    gap: 4px;
-    padding: 8px 12px;
-    font-size: 11px;
-    text-align: center;
-    justify-content: center;
-  }
-  .main-area {
-    margin-left: 0;
-    padding: 16px 16px 96px;
-  }
-  .headstock-grid {
-    grid-template-columns: 1fr 74px 1fr;
-  }
+  .brand, .finger-legend-box { display: none; }
+  .nav-menu { flex-direction: row; justify-content: space-around; width: 100%; }
+  .nav-btn { flex-direction: column; gap: 4px; padding: 8px 10px; font-size: 11px; text-align: center; justify-content: center; }
+  .main-area { margin-left: 0; padding: 14px 14px 96px; }
 }
 </style>
 </head>
@@ -785,27 +379,27 @@ body {
     <div class="brand-logo"><i class="fa-solid fa-guitar"></i></div>
     <div class="brand-title">
       <h1>Kako Guitar</h1>
-      <span>Yousician & Tuna UI</span>
+      <span>Yousician Pro</span>
     </div>
   </div>
 
   <nav class="nav-menu">
     <button class="nav-btn active" onclick="app.switchTab('practiceView', this)">
       <i class="fa-solid fa-play"></i>
-      <span>Pista & Práctica</span>
-    </button>
-    <button class="nav-btn" onclick="app.switchTab('tunerView', this)">
-      <i class="fa-solid fa-gauge-Simple-high fa-solid fa-compass"></i>
-      <span>Afinador Pro</span>
+      <span>Punteo & Canciones</span>
     </button>
     <button class="nav-btn" onclick="app.switchTab('chordsView', this)">
       <i class="fa-solid fa-grip"></i>
-      <span>Acordes & Dedos</span>
+      <span>Acordes & Rasgueo</span>
+    </button>
+    <button class="nav-btn" onclick="app.switchTab('tunerView', this)">
+      <i class="fa-solid fa-compass"></i>
+      <span>Afinador Pro</span>
     </button>
   </nav>
 
   <div class="finger-legend-box">
-    <h4>Código de Dedos</h4>
+    <h4>Colores por Dedo</h4>
     <div class="legend-grid">
       <div class="legend-pill"><span class="dot f1">1</span> Índice</div>
       <div class="legend-pill"><span class="dot f2">2</span> Medio</div>
@@ -821,11 +415,15 @@ body {
   <!-- Cabecera Global -->
   <header class="top-header">
     <div class="header-title">
-      <h2 id="viewMainTitle">Pista Interactiva de Práctica</h2>
-      <p id="viewSubTitle">Sigue los colores de cada dedo sobre las 6 cuerdas en tiempo real</p>
+      <h2 id="viewMainTitle">Estudio de Punteo y Rasgueo Estilo Yousician</h2>
+      <p id="viewSubTitle">Elige tu género musical favorito, sigue los colores de cada dedo y toca con banda en vivo</p>
     </div>
 
     <div class="header-actions">
+      <div class="btn btn-surface" style="cursor:default;">
+        <i class="fa-solid fa-trophy" style="color:var(--warning);"></i>
+        <span id="scoreHeaderText">0 PTS</span>
+      </div>
       <button class="btn btn-surface" id="globalMicBtn" onclick="app.toggleMicrophone()">
         <i class="fa-solid fa-microphone-slash" id="micStatusIcon"></i>
         <span id="micStatusText">Activar Micrófono</span>
@@ -837,38 +435,71 @@ body {
   </header>
 
   <!-- =======================================================================
-       VISTA 1: PRÁCTICA INTERACTIVA (ESTILO YOUSICIAN)
+       VISTA 1: PRÁCTICA INTERACTIVA (PUNTEO + RASGUEO + MULTI-GÉNERO)
        ======================================================================= -->
   <section class="view-section active" id="practiceView">
+
+    <!-- Selector de Géneros Musicales -->
+    <div class="genre-bar" id="genreBar">
+      <button class="genre-tab active" onclick="app.filterGenre('all', this)">🌟 Todos los Estilos</button>
+      <button class="genre-tab" onclick="app.filterGenre('latino', this)">🇪🇸 Español & Latino</button>
+      <button class="genre-tab" onclick="app.filterGenre('rock', this)">🎸 Rock & Riffs</button>
+      <button class="genre-tab" onclick="app.filterGenre('ingles', this)">🌎 Pop & Inglés</button>
+      <button class="genre-tab" onclick="app.filterGenre('clasica', this)">🏛️ Clásica & Antigua</button>
+      <button class="genre-tab" onclick="app.filterGenre('rasgueo', this)">🔥 Acordes & Rasgueo</button>
+    </div>
+
+    <!-- Tarjetas de Canciones -->
+    <div class="song-selector-row" id="songSelectorRow"></div>
+
+    <!-- Escenario Principal Yousician -->
     <div class="yousician-stage">
       <div class="stage-hud">
-        <div class="chord-selector-pills" id="chordPillsContainer">
-          <!-- Generado dinámicamente: Em, Am, C, G, D + Modo Progresión -->
+        <div>
+          <span id="currentSongBadge" style="font-size:11px; font-weight:800; color:var(--accent-blue); text-transform:uppercase; letter-spacing:0.8px;">PUNTEO GUIADO</span>
+          <h3 id="currentSongTitle" style="font-size:18px; font-weight:800;">Cargando canción...</h3>
         </div>
 
-        <div style="display:flex; gap:10px; align-items:center;">
-          <span style="font-size:12px; color:var(--text-secondary); font-weight:600;">
-            Velocidad: <strong id="bpmLabel" style="color:var(--accent-green);">85 BPM</strong>
-          </span>
-          <input type="range" min="50" max="140" value="85" style="width:95px; accent-color:var(--accent-green);" oninput="app.setBpm(this.value)" />
+        <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+          <button class="btn btn-surface active-toggle" id="backingToggleBtn" onclick="app.toggleBackingTrack()">
+            <i class="fa-solid fa-drum"></i> Banda de Fondo: ON
+          </button>
+          <div style="display:flex; align-items:center; gap:8px;">
+            <span style="font-size:12px; color:var(--text-secondary); font-weight:700;">
+              Tempo: <strong id="bpmLabel" style="color:var(--accent-green);">85 BPM</strong>
+            </span>
+            <input type="range" min="45" max="150" value="85" style="width:90px; accent-color:var(--accent-green);" oninput="app.setBpm(this.value)" />
+          </div>
         </div>
       </div>
 
-      <!-- Canvas estilo Yousician con las 6 cuerdas y bloques por color de dedo -->
-      <canvas id="highwayCanvas" width="960" height="230"></canvas>
+      <!-- Instrucción Paso a Paso en Tiempo Real -->
+      <div class="live-instruction-banner">
+        <div class="instruction-main" id="liveStepText">
+          <span class="dot f1">1</span> Presiona "Iniciar Canción" o "Paso a Paso" para comenzar a puntear
+        </div>
+        <div class="instruction-sub" id="livePluckHint">Mano Derecha: Lista</div>
+      </div>
 
+      <!-- Canvas de Tablatura con Pelotita Saltarina y Colores por Dedo -->
+      <canvas id="highwayCanvas" width="960" height="235"></canvas>
+
+      <!-- Controles de Reproducción -->
       <div class="stage-controls">
         <div style="display:flex; gap:10px; flex-wrap:wrap;">
-          <button class="btn btn-primary" id="playTrackBtn" onclick="app.toggleHighwayPlayback()">
-            <i class="fa-solid fa-play"></i> Iniciar Pista
+          <button class="btn btn-primary" id="playSongBtn" onclick="app.togglePlaySong()">
+            <i class="fa-solid fa-play"></i> Iniciar Canción
           </button>
-          <button class="btn btn-blue" onclick="app.strumChord(app.currentChordKey)">
-            <i class="fa-solid fa-volume-high"></i> Escuchar Acorde (<span id="btnChordLabel">Em</span>)
+          <button class="btn btn-blue" onclick="app.stepNextNote()">
+            <i class="fa-solid fa-forward-step"></i> Paso a Paso (Nota + Audio)
+          </button>
+          <button class="btn btn-surface" onclick="app.restartSong()">
+            <i class="fa-solid fa-rotate-left"></i> Reiniciar
           </button>
         </div>
 
-        <!-- Leyenda rápida visible en móviles y tablets -->
-        <div class="finger-bar-inline">
+        <div class="legend-grid" style="display:flex; gap:12px;">
+          <span class="legend-pill"><span class="dot f0">0</span> Aire</span>
           <span class="legend-pill"><span class="dot f1">1</span> Índice</span>
           <span class="legend-pill"><span class="dot f2">2</span> Medio</span>
           <span class="legend-pill"><span class="dot f3">3</span> Anular</span>
@@ -877,296 +508,358 @@ body {
       </div>
     </div>
 
-    <!-- Detalle de Diapasón y Cuerdas del Acorde Activo -->
+    <!-- Vista Dividida Inferior: Diapasón Mano Izquierda + Cuerdas Mano Derecha -->
     <div class="practice-split">
+      <!-- Mano Izquierda: Diapasón en Vivo -->
       <div class="card">
         <div class="card-top">
-          <h3>
-            <i class="fa-solid fa-hand-sparkles" style="color:var(--accent-blue);"></i>
-            Mapa del Diapasón: <span id="activeChordTitle" style="color:var(--accent-green);">Mi Menor (Em)</span>
-          </h3>
-          <span style="font-size:12px; color:var(--text-secondary);">Toca cualquier cuerda para oírla</span>
+          <h3><i class="fa-solid fa-hand" style="color:var(--accent-blue);"></i> Mano Izquierda: Diapasón en Vivo (Trastes 0 al 7)</h3>
+          <span style="font-size:12px; color:var(--text-secondary);">Se ilumina el dedo y traste exacto</span>
         </div>
-
-        <div class="fretboard-wrapper" id="interactiveFretboardContainer">
-          <!-- SVG Horizontal del Diapasón con los dedos coloreados -->
-        </div>
+        <div class="fretboard-svg-box" id="liveFretboardBox"></div>
       </div>
 
+      <!-- Mano Derecha: Qué Cuerda Puntear o Rasguear -->
       <div class="card">
         <div class="card-top">
-          <h3>
-            <i class="fa-solid fa-list-check" style="color:var(--accent-green);"></i>
-            Qué Cuerda Tocar y Qué Dedo Colocar
-          </h3>
+          <h3><i class="fa-solid fa-hand-point-up" style="color:var(--accent-green);"></i> Mano Derecha: Cuerda a Tocar</h3>
+          <span style="font-size:12px; color:var(--accent-green);" id="rightHandModeLabel">Modo Punteo</span>
         </div>
-        <div class="string-guide-list" id="stringStepByStepList">
-          <!-- Lista cuerda por cuerda con el color exacto del dedo -->
-        </div>
+        <div class="pluck-visualizer" id="pluckVisualizerList"></div>
       </div>
+    </div>
+
+  </section>
+
+  <!-- =======================================================================
+       VISTA 2: BIBLIOTECA DE ACORDES Y RASGUEO CON COLORES DE DEDOS
+       ======================================================================= -->
+  <section class="view-section" id="chordsView">
+    <div class="card">
+      <div class="card-top">
+        <h3><i class="fa-solid fa-grip" style="color:var(--accent-green);"></i> Biblioteca Interactiva de Acordes (Colores Yousician)</h3>
+        <span style="font-size:12px; color:var(--text-secondary);">Toca cualquier acorde para escuchar su rasgueo real</span>
+      </div>
+      <div class="chords-grid" id="chordsLibraryGrid"></div>
     </div>
   </section>
 
   <!-- =======================================================================
-       VISTA 2: AFINADOR TIPO GUITARTUNA (PRECISO CON +TENSAR / -DESTENSAR)
+       VISTA 3: AFINADOR PROFESIONAL ESTILO GUITARTUNA
        ======================================================================= -->
   <section class="view-section" id="tunerView">
     <div class="tuner-layout">
-      <!-- Medidor Central GuitarTuna -->
       <div class="card guitartuna-meter-card">
         <div style="width:100%; display:flex; justify-content:space-between; align-items:center;">
-          <span style="font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:0.8px; color:var(--accent-green);">
-            <i class="fa-solid fa-wave-square"></i> Detector de Alta Precisión
-          </span>
-          <button class="btn btn-surface" style="padding:6px 12px; min-height:34px; font-size:12px;" id="autoModeBtn" onclick="app.setTunerAutoMode()">
-            Modo: Automático (6 Cuerdas)
-          </button>
+          <span style="font-size:13px; font-weight:700; color:var(--text-secondary);">MODO AUTO · 6 CUERDAS</span>
+          <span style="font-size:12px; color:var(--accent-green);" id="tunerMicHint">Usa el botón Activar Micrófono arriba</span>
         </div>
 
-        <!-- Regla de Centavos + Burbuja Móvil -->
         <div class="gt-scale-wrapper">
           <div class="gt-center-line" id="gtCenterLine"></div>
           <div class="gt-ticks">
-            <div class="gt-tick major"></div>
-            <div class="gt-tick"></div>
-            <div class="gt-tick"></div>
-            <div class="gt-tick"></div>
-            <div class="gt-tick major"></div>
-            <div class="gt-tick"></div>
-            <div class="gt-tick"></div>
-            <div class="gt-tick"></div>
+            <div class="gt-tick major"></div><div class="gt-tick"></div><div class="gt-tick"></div><div class="gt-tick"></div>
+            <div class="gt-tick major"></div><div class="gt-tick"></div><div class="gt-tick"></div><div class="gt-tick"></div>
             <div class="gt-tick center"></div>
-            <div class="gt-tick"></div>
-            <div class="gt-tick"></div>
-            <div class="gt-tick"></div>
-            <div class="gt-tick major"></div>
-            <div class="gt-tick"></div>
-            <div class="gt-tick"></div>
-            <div class="gt-tick"></div>
-            <div class="gt-tick major"></div>
+            <div class="gt-tick"></div><div class="gt-tick"></div><div class="gt-tick"></div><div class="gt-tick major"></div>
+            <div class="gt-tick"></div><div class="gt-tick"></div><div class="gt-tick"></div><div class="gt-tick major"></div>
           </div>
-          <div class="gt-needle-bubble" id="gtNeedleBubble">--</div>
+          <div class="gt-needle-bubble" id="gtNeedleBubble">0</div>
         </div>
 
-        <!-- Nota Detectada y Frecuencia Exacta -->
         <div>
-          <div class="detected-note-badge" id="tunerNoteName">--</div>
-          <div class="freq-readout" id="tunerFreqDisplay">Escuchando... (0.00 Hz)</div>
+          <div class="detected-note-badge" id="tunerNoteBadge">--</div>
+          <div class="freq-readout" id="tunerFreqReadout">0.0 Hz</div>
         </div>
 
-        <!-- Caja de Instrucción de Tensión (+Tensar / -Destensar / 0 Afinada) -->
-        <div class="tension-instruction-box" id="tensionInstructionBox">
-          <span class="tension-number" id="tensionNumberDisplay">--</span>
-          <span class="tension-label" id="tensionTextDisplay">Activa el micrófono y toca una cuerda</span>
+        <div class="tension-instruction-box" id="tensionBox">
+          Toca una cuerda o presiona una clavija a la derecha para oír su referencia
         </div>
       </div>
 
-      <!-- Clavijero de 6 Cuerdas Estándar -->
       <div class="card headstock-container">
         <div class="card-top" style="width:100%;">
-          <h3><i class="fa-solid fa-sliders" style="color:var(--accent-blue);"></i> Cuerdas Estándar (E2 – E4)</h3>
-          <span style="font-size:12px; color:var(--text-secondary);">Toca una clavija para fijar y oír</span>
+          <h3>Clavijero de Referencia Auditiva</h3>
+          <span style="font-size:12px; color:var(--accent-blue);">Clic para oír cuerda</span>
         </div>
 
         <div class="headstock-grid">
-          <!-- Clavijas Izquierdas: 4ª Re (D3), 5ª La (A2), 6ª Mi (E2) -->
           <div class="pegs-column">
-            <button class="string-peg-btn" id="peg-D3" onclick="app.selectTunerString('D3')">
-              <div style="text-align:left;">
-                <div class="peg-note">4ª Re (D3)</div>
-                <div class="peg-hz">146.83 Hz</div>
-              </div>
-              <i class="fa-solid fa-volume-low" style="color:var(--accent-blue);"></i>
+            <button class="string-peg-btn" onclick="app.playReferenceString('D3', 146.83, this)">
+              <span class="peg-note">D3</span><span class="peg-hz">4ta · 146.8Hz</span>
             </button>
-
-            <button class="string-peg-btn" id="peg-A2" onclick="app.selectTunerString('A2')">
-              <div style="text-align:left;">
-                <div class="peg-note">5ª La (A2)</div>
-                <div class="peg-hz">110.00 Hz</div>
-              </div>
-              <i class="fa-solid fa-volume-low" style="color:var(--accent-blue);"></i>
+            <button class="string-peg-btn" onclick="app.playReferenceString('A2', 110.00, this)">
+              <span class="peg-note">A2</span><span class="peg-hz">5ta · 110.0Hz</span>
             </button>
-
-            <button class="string-peg-btn" id="peg-E2" onclick="app.selectTunerString('E2')">
-              <div style="text-align:left;">
-                <div class="peg-note">6ª Mi (E2)</div>
-                <div class="peg-hz">82.41 Hz</div>
-              </div>
-              <i class="fa-solid fa-volume-low" style="color:var(--accent-blue);"></i>
+            <button class="string-peg-btn" onclick="app.playReferenceString('E2', 82.41, this)">
+              <span class="peg-note">E2</span><span class="peg-hz">6ta · 82.4Hz</span>
             </button>
           </div>
 
-          <!-- Silueta Central del Mástil con las 6 Cuerdas -->
           <div class="headstock-neck">
-            <div class="neck-string-line" id="line-E2" style="width:4px;"></div>
-            <div class="neck-string-line" id="line-A2" style="width:3.4px;"></div>
-            <div class="neck-string-line" id="line-D3" style="width:2.8px;"></div>
-            <div class="neck-string-line" id="line-G3" style="width:2.3px;"></div>
-            <div class="neck-string-line" id="line-B3" style="width:1.8px;"></div>
-            <div class="neck-string-line" id="line-E4" style="width:1.4px;"></div>
+            <div class="neck-string-line"></div>
+            <div class="neck-string-line"></div>
+            <div class="neck-string-line"></div>
+            <div class="neck-string-line"></div>
+            <div class="neck-string-line"></div>
+            <div class="neck-string-line"></div>
           </div>
 
-          <!-- Clavijas Derechas: 3ª Sol (G3), 2ª Si (B3), 1ª Mi (E4) -->
           <div class="pegs-column">
-            <button class="string-peg-btn" id="peg-G3" onclick="app.selectTunerString('G3')">
-              <div style="text-align:left;">
-                <div class="peg-note">3ª Sol (G3)</div>
-                <div class="peg-hz">196.00 Hz</div>
-              </div>
-              <i class="fa-solid fa-volume-low" style="color:var(--accent-blue);"></i>
+            <button class="string-peg-btn" onclick="app.playReferenceString('G3', 196.00, this)">
+              <span class="peg-note">G3</span><span class="peg-hz">3ra · 196.0Hz</span>
             </button>
-
-            <button class="string-peg-btn" id="peg-B3" onclick="app.selectTunerString('B3')">
-              <div style="text-align:left;">
-                <div class="peg-note">2ª Si (B3)</div>
-                <div class="peg-hz">246.94 Hz</div>
-              </div>
-              <i class="fa-solid fa-volume-low" style="color:var(--accent-blue);"></i>
+            <button class="string-peg-btn" onclick="app.playReferenceString('B3', 246.94, this)">
+              <span class="peg-note">B3</span><span class="peg-hz">2da · 246.9Hz</span>
             </button>
-
-            <button class="string-peg-btn" id="peg-E4" onclick="app.selectTunerString('E4')">
-              <div style="text-align:left;">
-                <div class="peg-note">1ª Mi (E4)</div>
-                <div class="peg-hz">329.63 Hz</div>
-              </div>
-              <i class="fa-solid fa-volume-low" style="color:var(--accent-blue);"></i>
+            <button class="string-peg-btn" onclick="app.playReferenceString('E4', 329.63, this)">
+              <span class="peg-note">E4</span><span class="peg-hz">1ra · 329.6Hz</span>
             </button>
           </div>
         </div>
-
-        <p style="font-size:12px; color:var(--text-muted); text-align:center; margin-top:8px;">
-          Valores positivos (<strong>+1, +5... Tensar</strong>) indican que debes apretar la clavija. Valores negativos (<strong>-1, -5... Destensar</strong>) indican que debes aflojarla.
-        </p>
       </div>
-    </div>
-  </section>
-
-  <!-- =======================================================================
-       VISTA 3: BIBLIOTECA DE ACORDES CON COLORES POR DEDO
-       ======================================================================= -->
-  <section class="view-section" id="chordsView">
-    <div class="chords-grid" id="chordsLibraryGrid">
-      <!-- Tarjetas generadas dinámicamente -->
     </div>
   </section>
 
 </main>
 
 <script>
-/**
- * KAKO GUITAR — MOTOR WEB AUDIO API + INTERFAZ YOUSICIAN / GUITARTUNA
- */
+/* ==========================================================================
+   CATÁLOGO MULTI-GÉNERO DE CANCIONES DE LICENCIA LIBRE / DOMINIO PÚBLICO
+   ========================================================================== */
 const FINGER_COLORS = {
-  0: '#94A3B8', // Al aire
-  1: '#00B0FF', // Dedo 1 (Índice) - Azul
-  2: '#00E676', // Dedo 2 (Medio) - Verde
-  3: '#FFB300', // Dedo 3 (Anular) - Naranja/Amarillo
-  4: '#D500F9'  // Dedo 4 (Meñique) - Morado
+  0: '#E2E8F0', // Cuerda al aire
+  1: '#00B0FF', // Dedo 1: Índice (Azul)
+  2: '#00E676', // Dedo 2: Medio (Verde)
+  3: '#FFB300', // Dedo 3: Anular (Amarillo/Naranja)
+  4: '#D500F9'  // Dedo 4: Meñique (Morado)
 };
 
 const FINGER_NAMES = {
-  0: 'Al aire (Sin dedo)',
-  1: 'Dedo 1 (Índice • Azul)',
-  2: 'Dedo 2 (Medio • Verde)',
-  3: 'Dedo 3 (Anular • Naranja)',
-  4: 'Dedo 4 (Meñique • Morado)'
+  0: 'Al Aire (Sin pisar)',
+  1: 'Dedo 1 (Índice - Azul)',
+  2: 'Dedo 2 (Medio - Verde)',
+  3: 'Dedo 3 (Anular - Naranja)',
+  4: 'Dedo 4 (Meñique - Morado)'
 };
 
-//Las 6 cuerdas estándar al aire de la guitarra (de 6ª grave a 1ª aguda)
-const GUITAR_STRINGS = [
-  { id: 'E2', stringNum: 6, label: '6ª Mi (E2)', note: 'E2', freq: 82.41 },
-  { id: 'A2', stringNum: 5, label: '5ª La (A2)', note: 'A2', freq: 110.00 },
-  { id: 'D3', stringNum: 4, label: '4ª Re (D3)', note: 'D3', freq: 146.83 },
-  { id: 'G3', stringNum: 3, label: '3ª Sol (G3)', note: 'G3', freq: 196.00 },
-  { id: 'B3', stringNum: 2, label: '2ª Si (B3)', note: 'B3', freq: 246.94 },
-  { id: 'E4', stringNum: 1, label: '1ª Mi (E4)', note: 'E4', freq: 329.63 }
+// Frecuencias base de las 6 cuerdas al aire (1 = Mi agudo, 6 = Mi grave)
+const OPEN_STRING_FREQS = {
+  1: 329.63, // e4 (1ra cuerda)
+  2: 246.94, // B3 (2da cuerda)
+  3: 196.00, // G3 (3ra cuerda)
+  4: 146.83, // D3 (4ta cuerda)
+  5: 110.00, // A2 (5ta cuerda)
+  6: 82.41   // E2 (6ta cuerda)
+};
+
+const STRING_LABELS = {
+  1: '1ra Cuerda (e Mi agudo)',
+  2: '2da Cuerda (B Si)',
+  3: '3ra Cuerda (G Sol)',
+  4: '4ta Cuerda (D Re)',
+  5: '5ta Cuerda (A La)',
+  6: '6ta Cuerda (E Mi grave)'
+};
+
+const SONGS_DB = [
+  {
+    id: 'malaguena',
+    title: 'Malagueña Española (Punteo)',
+    genre: 'latino',
+    styleLabel: '🇪🇸 Español / Flamenco',
+    mode: 'punteo',
+    bpm: 88,
+    notes: [
+      { beat: 0, string: 6, fret: 0, finger: 0, lyric: 'Mi grave al aire' },
+      { beat: 1, string: 1, fret: 0, finger: 0, lyric: '1ra al aire' },
+      { beat: 2, string: 6, fret: 1, finger: 1, lyric: 'Fa (Dedo 1 Índice)' },
+      { beat: 3, string: 1, fret: 0, finger: 0, lyric: '1ra al aire' },
+      { beat: 4, string: 6, fret: 3, finger: 3, lyric: 'Sol (Dedo 3 Anular)' },
+      { beat: 5, string: 1, fret: 0, finger: 0, lyric: '1ra al aire' },
+      { beat: 6, string: 6, fret: 1, finger: 1, lyric: 'Regresa a Traste 1' },
+      { beat: 7, string: 6, fret: 0, finger: 0, lyric: 'Cierre en Mi' }
+    ]
+  },
+  {
+    id: 'cielito',
+    title: 'Cielito Lindo (Melodía Punteada)',
+    genre: 'latino',
+    styleLabel: '🇲🇽 Tradicional en Español',
+    mode: 'punteo',
+    bpm: 92,
+    notes: [
+      { beat: 0, string: 2, fret: 1, finger: 1, lyric: 'De (Do)' },
+      { beat: 1, string: 2, fret: 1, finger: 1, lyric: 'la (Do)' },
+      { beat: 2, string: 3, fret: 2, finger: 2, lyric: 'Sie- (La)' },
+      { beat: 3, string: 2, fret: 1, finger: 1, lyric: '-rra (Do)' },
+      { beat: 4, string: 2, fret: 0, finger: 0, lyric: 'Mo- (Si)' },
+      { beat: 5, string: 3, fret: 0, finger: 0, lyric: '-re- (Sol)' },
+      { beat: 6, string: 4, fret: 2, finger: 2, lyric: '-na (Mi)' },
+      { beat: 7, string: 3, fret: 2, finger: 2, lyric: 'Cielito Lindo' }
+    ]
+  },
+  {
+    id: 'smoke_riff',
+    title: 'Smoke Classic Riff (Rock Pesado)',
+    genre: 'rock',
+    styleLabel: '🎸 Rock Clásico',
+    mode: 'punteo',
+    bpm: 104,
+    notes: [
+      { beat: 0, string: 3, fret: 0, finger: 0, lyric: 'Sol al aire' },
+      { beat: 1, string: 3, fret: 3, finger: 1, lyric: 'Traste 3 (Índice)' },
+      { beat: 2, string: 3, fret: 5, finger: 3, lyric: 'Traste 5 (Anular)' },
+      { beat: 3.5, string: 3, fret: 0, finger: 0, lyric: 'Sol al aire' },
+      { beat: 4.5, string: 3, fret: 3, finger: 1, lyric: 'Traste 3 (Índice)' },
+      { beat: 5.5, string: 3, fret: 6, finger: 4, lyric: 'Traste 6 (Meñique)' },
+      { beat: 6.2, string: 3, fret: 5, finger: 3, lyric: 'Traste 5 (Anular)' }
+    ]
+  },
+  {
+    id: 'seven_riff',
+    title: 'Arena Stadium Riff (Punteo en 5ta)',
+    genre: 'rock',
+    styleLabel: '🎸 Garage Rock',
+    mode: 'punteo',
+    bpm: 110,
+    notes: [
+      { beat: 0, string: 5, fret: 2, finger: 1, lyric: 'Si (Dedo 1)' },
+      { beat: 1.5, string: 5, fret: 2, finger: 1, lyric: 'Si (Dedo 1)' },
+      { beat: 2.2, string: 5, fret: 5, finger: 4, lyric: 'Re (Dedo 4 Meñique)' },
+      { beat: 3.0, string: 5, fret: 2, finger: 1, lyric: 'Si (Dedo 1)' },
+      { beat: 3.8, string: 5, fret: 0, finger: 0, lyric: 'La al aire' },
+      { beat: 4.8, string: 6, fret: 3, finger: 2, lyric: 'Sol en 6ta (Dedo 2)' },
+      { beat: 6.2, string: 6, fret: 2, finger: 1, lyric: 'Fa# en 6ta (Dedo 1)' }
+    ]
+  },
+  {
+    id: 'stand_by_pop',
+    title: 'Soul Groove Melody (Inglés / Pop)',
+    genre: 'ingles',
+    styleLabel: '🌎 Soul & Pop Inglés',
+    mode: 'punteo',
+    bpm: 95,
+    notes: [
+      { beat: 0, string: 6, fret: 3, finger: 2, lyric: 'Groove en Sol (G)' },
+      { beat: 1, string: 6, fret: 3, finger: 2, lyric: 'Mantén Dedo 2' },
+      { beat: 2, string: 5, fret: 2, finger: 1, lyric: 'Bajada en Si' },
+      { beat: 3, string: 6, fret: 0, finger: 0, lyric: 'Cambio a Mi menor' },
+      { beat: 4, string: 6, fret: 0, finger: 0, lyric: 'Pulso firme' },
+      { beat: 5, string: 5, fret: 3, finger: 3, lyric: 'Do (Dedo 3 Anular)' },
+      { beat: 6, string: 4, fret: 0, finger: 0, lyric: 'Re al aire' },
+      { beat: 7, string: 6, fret: 3, finger: 2, lyric: 'Resuelve en Sol' }
+    ]
+  },
+  {
+    id: 'ode_to_joy',
+    title: 'Himno a la Alegría — Beethoven',
+    genre: 'clasica',
+    styleLabel: '🏛️ Música Clásica',
+    mode: 'punteo',
+    bpm: 90,
+    notes: [
+      { beat: 0, string: 1, fret: 0, finger: 0, lyric: 'Mi (Al aire)' },
+      { beat: 1, string: 1, fret: 0, finger: 0, lyric: 'Mi (Al aire)' },
+      { beat: 2, string: 1, fret: 1, finger: 1, lyric: 'Fa (Dedo 1)' },
+      { beat: 3, string: 1, fret: 3, finger: 3, lyric: 'Sol (Dedo 3)' },
+      { beat: 4, string: 1, fret: 3, finger: 3, lyric: 'Sol (Dedo 3)' },
+      { beat: 5, string: 1, fret: 1, finger: 1, lyric: 'Fa (Dedo 1)' },
+      { beat: 6, string: 1, fret: 0, finger: 0, lyric: 'Mi (Al aire)' },
+      { beat: 7, string: 2, fret: 3, finger: 3, lyric: 'Re en 2da (Dedo 3)' }
+    ]
+  },
+  {
+    id: 'fur_elise',
+    title: 'Para Elisa (Intro Punteo Clásico)',
+    genre: 'clasica',
+    styleLabel: '🏛️ Música Antigua / Clásica',
+    mode: 'punteo',
+    bpm: 82,
+    notes: [
+      { beat: 0, string: 1, fret: 0, finger: 0, lyric: 'Mi al aire' },
+      { beat: 0.75, string: 2, fret: 4, finger: 4, lyric: 'Re# (Dedo 4 Meñique)' },
+      { beat: 1.5, string: 1, fret: 0, finger: 0, lyric: 'Mi al aire' },
+      { beat: 2.25, string: 2, fret: 4, finger: 4, lyric: 'Re# (Dedo 4)' },
+      { beat: 3.0, string: 1, fret: 0, finger: 0, lyric: 'Mi al aire' },
+      { beat: 3.75, string: 2, fret: 0, finger: 0, lyric: 'Si al aire' },
+      { beat: 4.5, string: 2, fret: 3, finger: 3, lyric: 'Re (Dedo 3)' },
+      { beat: 5.25, string: 2, fret: 1, finger: 1, lyric: 'Do (Dedo 1)' },
+      { beat: 6.0, string: 3, fret: 2, finger: 2, lyric: 'La (Dedo 2 Medio)' }
+    ]
+  },
+  {
+    id: 'rasgueo_rock_pop',
+    title: 'Sesión de Rasgueo: Em → G → D → Am',
+    genre: 'rasgueo',
+    styleLabel: '🔥 Acordes & Rasgueo',
+    mode: 'rasgueo',
+    bpm: 85,
+    notes: [
+      { beat: 0, chord: 'Em', dir: '⬇ ABAJO', string: 6, fret: 0, finger: 2, lyric: 'Rasguea Em hacia ABAJO' },
+      { beat: 1, chord: 'Em', dir: '⬆ ARRIBA', string: 4, fret: 2, finger: 3, lyric: 'Rasguea Em hacia ARRIBA' },
+      { beat: 2, chord: 'G',  dir: '⬇ ABAJO', string: 6, fret: 3, finger: 2, lyric: 'Cambia a Sol (G) ABAJO' },
+      { beat: 3, chord: 'G',  dir: '⬆ ARRIBA', string: 1, fret: 3, finger: 3, lyric: 'Sol (G) hacia ARRIBA' },
+      { beat: 4, chord: 'D',  dir: '⬇ ABAJO', string: 3, fret: 2, finger: 1, lyric: 'Re Mayor (D) ABAJO' },
+      { beat: 5, chord: 'D',  dir: '⬆ ARRIBA', string: 2, fret: 3, finger: 3, lyric: 'Re Mayor (D) ARRIBA' },
+      { beat: 6, chord: 'Am', dir: '⬇ ABAJO', string: 2, fret: 1, finger: 1, lyric: 'La Menor (Am) ABAJO' },
+      { beat: 7, chord: 'Am', dir: '⬆ ARRIBA', string: 3, fret: 2, finger: 3, lyric: 'Cierre en Am ARRIBA' }
+    ]
+  }
 ];
 
-// Diccionario de acordes esenciales (arrays desde 6ª cuerda E2 hasta 1ª cuerda E4)
-const CHORDS_DATA = {
-  Em: {
-    key: 'Em',
-    name: 'Mi Menor (Em)',
-    frets:   [0, 2, 2, 0, 0, 0],
-    fingers: [0, 2, 3, 0, 0, 0],
-    freqs:   [82.41, 123.47, 164.81, 196.00, 246.94, 329.63]
-  },
-  Am: {
-    key: 'Am',
-    name: 'La Menor (Am)',
-    frets:   [-1, 0, 2, 2, 1, 0],
-    fingers: [0,  0, 2, 3, 1, 0],
-    freqs:   [null, 110.00, 164.81, 220.00, 261.63, 329.63]
-  },
-  C: {
-    key: 'C',
-    name: 'Do Mayor (C)',
-    frets:   [-1, 3, 2, 0, 1, 0],
-    fingers: [0,  3, 2, 0, 1, 0],
-    freqs:   [null, 130.81, 164.81, 196.00, 261.63, 329.63]
-  },
-  G: {
-    key: 'G',
-    name: 'Sol Mayor (G)',
-    frets:   [3, 2, 0, 0, 0, 3],
-    fingers: [2, 1, 0, 0, 0, 3],
-    freqs:   [98.00, 123.47, 146.83, 196.00, 246.94, 392.00]
-  },
-  D: {
-    key: 'D',
-    name: 'Re Mayor (D)',
-    frets:   [-1, -1, 0, 2, 3, 2],
-    fingers: [0,  0,  0, 1, 3, 2],
-    freqs:   [null, null, 146.83, 220.00, 293.66, 369.99]
-  }
+const CHORDS_LIBRARY = {
+  'Em': { name: 'Mi Menor (Em)', dots: [{s:5, f:2, finger:2}, {s:4, f:2, finger:3}] },
+  'Am': { name: 'La Menor (Am)', dots: [{s:2, f:1, finger:1}, {s:4, f:2, finger:2}, {s:3, f:2, finger:3}] },
+  'C':  { name: 'Do Mayor (C)',  dots: [{s:2, f:1, finger:1}, {s:4, f:2, finger:2}, {s:5, f:3, finger:3}] },
+  'G':  { name: 'Sol Mayor (G)', dots: [{s:5, f:2, finger:1}, {s:6, f:3, finger:2}, {s:1, f:3, finger:3}] },
+  'D':  { name: 'Re Mayor (D)',  dots: [{s:3, f:2, finger:1}, {s:1, f:2, finger:2}, {s:2, f:3, finger:3}] },
+  'A':  { name: 'La Mayor (A)',  dots: [{s:4, f:2, finger:1}, {s:3, f:2, finger:2}, {s:2, f:2, finger:3}] },
+  'E':  { name: 'Mi Mayor (E)',  dots: [{s:3, f:1, finger:1}, {s:5, f:2, finger:2}, {s:4, f:2, finger:3}] },
+  'Dm': { name: 'Re Menor (Dm)', dots: [{s:1, f:1, finger:1}, {s:3, f:2, finger:2}, {s:2, f:3, finger:3}] }
 };
 
-const app = {
-  audioCtx: null,
-  micStream: null,
-  analyser: null,
-  micListening: false,
-  pitchHistory: [],
+/* ==========================================================================
+   MOTOR PRINCIPAL DE LA APLICACIÓN (KAKO YOUSICIAN ENGINE)
+   ========================================================================== */
+class KakoYousicianApp {
+  constructor() {
+    this.currentGenre = 'all';
+    this.currentSong = SONGS_DB[0];
+    this.bpm = this.currentSong.bpm;
+    this.isPlaying = false;
+    this.backingEnabled = true;
+    this.currentBeat = -0.5;
+    this.stepIndex = 0;
+    this.score = 0;
+    this.lastFrameTime = performance.now();
+    this.lastDrumBeat = -1;
 
-  // Estado del Afinador
-  lockedStringId: null, // null = automático
+    this.audioCtx = null;
+    this.isMicActive = false;
+    this.analyser = null;
+    this.freqHistory = [];
 
-  // Estado de la Pista Yousician
-  currentChordKey: 'Em',
-  progressionMode: true,
-  bpm: 85,
-  highwayPlaying: false,
-  highwayScrollX: 0,
-  highwayEvents: [],
-  lastFrameTime: 0,
+    this.init();
+  }
 
   init() {
-    this.renderChordSelectorPills();
-    this.selectChord('Em', true);
+    this.renderSongSelector();
+    this.selectSong(SONGS_DB[0].id);
     this.renderChordsLibrary();
-    this.buildHighwaySequence();
-    this.drawHighwayFrame(0);
-    window.addEventListener('resize', () => this.drawHighwayFrame(0));
-  },
+    this.renderFretboardGuide(null);
+    this.renderPluckVisualizer(null);
+    this.animateHighway();
+  }
 
-  /* ==================== NAVEGACIÓN ==================== */
+  /* -------------------- NAVEGACIÓN ENTRE PESTAÑAS -------------------- */
   switchTab(viewId, btnEl) {
     document.querySelectorAll('.view-section').forEach(s => s.classList.remove('active'));
     document.getElementById(viewId).classList.add('active');
 
     document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
     if (btnEl) btnEl.classList.add('active');
-
-    const titles = {
-      practiceView: ['Pista Interactiva de Práctica', 'Sigue los colores de cada dedo sobre las 6 cuerdas en tiempo real'],
-      tunerView: ['Afinador GuitarTuna Pro', 'Reconocimiento exacto de las 6 cuerdas con guía de tensión (+Tensar / -Destensar)'],
-      chordsView: ['Biblioteca de Acordes por Color', 'Toca cualquier tarjeta para escuchar el rasgueo real y ver la posición de cada dedo']
-    };
-    if (titles[viewId]) {
-      document.getElementById('viewMainTitle').textContent = titles[viewId][0];
-      document.getElementById('viewSubTitle').textContent = titles[viewId][1];
-    }
-  },
+  }
 
   toggleFullScreen() {
     if (!document.fullscreenElement) {
@@ -1174,527 +867,259 @@ const app = {
     } else {
       document.exitFullscreen().catch(() => {});
     }
-  },
+  }
 
-  /* ==================== MOTOR DE SÍNTESIS ACÚSTICA (WEB AUDIO API) ==================== */
-  ensureAudioContext() {
+  /* -------------------- SELECCIÓN DE GÉNEROS Y CANCIONES -------------------- */
+  filterGenre(genre, btnEl) {
+    this.currentGenre = genre;
+    document.querySelectorAll('.genre-tab').forEach(b => b.classList.remove('active'));
+    if (btnEl) btnEl.classList.add('active');
+    this.renderSongSelector();
+  }
+
+  renderSongSelector() {
+    const row = document.getElementById('songSelectorRow');
+    const list = this.currentGenre === 'all'
+      ? SONGS_DB
+      : SONGS_DB.filter(s => s.genre === this.currentGenre);
+
+    row.innerHTML = list.map(song => `
+      <div class="song-chip ${song.id === this.currentSong.id ? 'active' : ''}" onclick="app.selectSong('${song.id}')">
+        <h4>${song.title}</h4>
+        <p>${song.styleLabel} · ${song.bpm} BPM</p>
+      </div>
+    `).join('');
+  }
+
+  selectSong(songId) {
+    const found = SONGS_DB.find(s => s.id === songId);
+    if (!found) return;
+    this.isPlaying = false;
+    document.getElementById('playSongBtn').innerHTML = '<i class="fa-solid fa-play"></i> Iniciar Canción';
+
+    this.currentSong = found;
+    this.bpm = found.bpm;
+    this.currentBeat = -0.5;
+    this.stepIndex = 0;
+    this.lastDrumBeat = -1;
+    this.currentSong.notes.forEach(n => n.played = false);
+
+    document.getElementById('currentSongBadge').textContent = `${found.styleLabel} — MODO ${found.mode.toUpperCase()}`;
+    document.getElementById('currentSongTitle').textContent = found.title;
+    document.getElementById('bpmLabel').textContent = `${this.bpm} BPM`;
+    document.getElementById('rightHandModeLabel').textContent = found.mode === 'punteo' ? 'Modo Punteo Cuerda a Cuerda' : 'Modo Rasgueo de Acordes';
+
+    this.renderSongSelector();
+    this.updateLiveInstruction(this.currentSong.notes[0]);
+  }
+
+  setBpm(val) {
+    this.bpm = parseInt(val, 10);
+    document.getElementById('bpmLabel').textContent = `${this.bpm} BPM`;
+  }
+
+  toggleBackingTrack() {
+    this.backingEnabled = !this.backingEnabled;
+    const btn = document.getElementById('backingToggleBtn');
+    btn.classList.toggle('active-toggle', this.backingEnabled);
+    btn.innerHTML = `<i class="fa-solid fa-drum"></i> Banda de Fondo: ${this.backingEnabled ? 'ON' : 'OFF'}`;
+  }
+
+  /* -------------------- MOTOR DE AUDIO Y BANDA EN VIVO -------------------- */
+  ensureAudio() {
     if (!this.audioCtx) {
-      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-      this.audioCtx = new AudioContextClass();
+      this.audioCtx = new (window.AudioContext || window.webkitAudioContext)();
     }
     if (this.audioCtx.state === 'suspended') {
       this.audioCtx.resume();
     }
-  },
+  }
 
-  playPluckedString(freq, delaySeconds = 0, duration = 2.0) {
-    if (!freq) return;
-    this.ensureAudioContext();
-    const startTime = this.audioCtx.currentTime + delaySeconds;
+  // Calcula la frecuencia exacta de cualquier cuerda y traste
+  getNoteFrequency(stringNum, fretNum) {
+    const openFreq = OPEN_STRING_FREQS[stringNum] || 196.0;
+    return openFreq * Math.pow(2, fretNum / 12);
+  }
 
-    // Oscilador rico en armónicos + filtro paso bajo envolvente para timbre de cuerda pulsada
-    const osc1 = this.audioCtx.createOscillator();
+  // Sintetizador realista de cuerda pulsada
+  playGuitarNote(stringNum, fretNum, duration = 1.2) {
+    this.ensureAudio();
+    const freq = this.getNoteFrequency(stringNum, fretNum);
+    const now = this.audioCtx.currentTime;
+
+    const osc = this.audioCtx.createOscillator();
     const osc2 = this.audioCtx.createOscillator();
     const filter = this.audioCtx.createBiquadFilter();
     const gain = this.audioCtx.createGain();
 
-    osc1.type = 'sawtooth';
+    osc.type = 'sawtooth';
     osc2.type = 'triangle';
-    osc1.frequency.setValueAtTime(freq, startTime);
-    osc2.frequency.setValueAtTime(freq * 2, startTime); // Octava sutil de brillo
+    osc.frequency.setValueAtTime(freq, now);
+    osc2.frequency.setValueAtTime(freq * 2, now); // Armónico de octava suave
 
     filter.type = 'lowpass';
-    filter.frequency.setValueAtTime(freq * 6, startTime);
-    filter.frequency.exponentialRampToValueAtTime(freq * 1.4, startTime + duration * 0.75);
+    filter.frequency.setValueAtTime(freq * 5, now);
+    filter.frequency.exponentialRampToValueAtTime(freq * 1.3, now + duration * 0.8);
 
-    const osc2Gain = this.audioCtx.createGain();
-    osc2Gain.gain.setValueAtTime(0.18, startTime);
+    gain.gain.setValueAtTime(0.26, now);
+    gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
 
-    gain.gain.setValueAtTime(0.001, startTime);
-    gain.gain.linearRampToValueAtTime(0.24, startTime + 0.015);
-    gain.gain.exponentialRampToValueAtTime(0.0008, startTime + duration);
-
-    osc1.connect(filter);
-    osc2.connect(osc2Gain);
-    osc2Gain.connect(filter);
+    osc.connect(filter);
+    osc2.connect(filter);
     filter.connect(gain);
     gain.connect(this.audioCtx.destination);
 
-    osc1.start(startTime);
-    osc2.start(startTime);
-    osc1.stop(startTime + duration);
-    osc2.stop(startTime + duration);
-  },
+    osc.start(now);
+    osc2.start(now);
+    osc.stop(now + duration);
+    osc2.stop(now + duration);
+  }
 
-  strumChord(chordKey) {
-    const chord = CHORDS_DATA[chordKey];
+  strumChordByName(chordName) {
+    this.ensureAudio();
+    const chord = CHORDS_LIBRARY[chordName];
     if (!chord) return;
-    let strumIndex = 0;
-    chord.freqs.forEach((freq) => {
-      if (freq !== null) {
-        this.playPluckedString(freq, strumIndex * 0.045, 2.2);
-        strumIndex++;
-      }
-    });
-  },
 
-  /* ==================== MICRÓFONO Y AFINADOR GUITARTUNA ==================== */
-  async toggleMicrophone() {
-    const btn = document.getElementById('globalMicBtn');
-    const icon = document.getElementById('micStatusIcon');
-    const text = document.getElementById('micStatusText');
+    for (let s = 6; s >= 1; s--) {
+      const dot = chord.dots.find(d => d.s === s);
+      const fret = dot ? dot.f : 0;
+      setTimeout(() => this.playGuitarNote(s, fret, 1.4), (6 - s) * 40);
+    }
+  }
 
-    if (this.micListening) {
-      this.micListening = false;
-      if (this.micStream) {
-        this.micStream.getTracks().forEach(t => t.stop());
-        this.micStream = null;
-      }
-      btn.classList.remove('active-mic');
-      icon.className = 'fa-solid fa-microphone-slash';
-      text.textContent = 'Activar Micrófono';
-      return;
+  // Batería y Bajo sintetizados para acompañar según el estilo musical
+  playBackingBeat(beatNumber) {
+    if (!this.backingEnabled) return;
+    this.ensureAudio();
+    const now = this.audioCtx.currentTime;
+
+    // Bombo en tiempos pares, Caja/Hi-hat en impares
+    const osc = this.audioCtx.createOscillator();
+    const gain = this.audioCtx.createGain();
+
+    if (beatNumber % 2 === 0) {
+      // Kick Drum + Bajo suave
+      osc.frequency.setValueAtTime(120, now);
+      osc.frequency.exponentialRampToValueAtTime(42, now + 0.12);
+      gain.gain.setValueAtTime(0.25, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.18);
+    } else {
+      // Hi-hat / Pulso rítmico
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(850, now);
+      gain.gain.setValueAtTime(0.08, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + 0.05);
     }
 
-    try {
-      this.ensureAudioContext();
-      this.micStream = await navigator.mediaDevices.getUserMedia({
-        audio: {
-          echoCancellation: false,
-          autoGainControl: false,
-          noiseSuppression: false
+    osc.connect(gain);
+    gain.connect(this.audioCtx.destination);
+    osc.start(now);
+    osc.stop(now + 0.2);
+  }
+
+  /* -------------------- REPRODUCCIÓN Y PASO A PASO -------------------- */
+  togglePlaySong() {
+    this.ensureAudio();
+    this.isPlaying = !this.isPlaying;
+    this.lastFrameTime = performance.now();
+
+    const btn = document.getElementById('playSongBtn');
+    btn.innerHTML = this.isPlaying
+      ? '<i class="fa-solid fa-pause"></i> Pausar Canción'
+      : '<i class="fa-solid fa-play"></i> Continuar Canción';
+  }
+
+  restartSong() {
+    this.currentBeat = -0.5;
+    this.stepIndex = 0;
+    this.lastDrumBeat = -1;
+    this.currentSong.notes.forEach(n => n.played = false);
+    this.updateLiveInstruction(this.currentSong.notes[0]);
+  }
+
+  // Modo Paso a Paso para practicar cada punteo sin prisa
+  stepNextNote() {
+    this.ensureAudio();
+    this.isPlaying = false;
+    document.getElementById('playSongBtn').innerHTML = '<i class="fa-solid fa-play"></i> Iniciar Canción';
+
+    const note = this.currentSong.notes[this.stepIndex];
+    if (!note) return;
+
+    this.currentBeat = note.beat;
+    this.triggerNoteEvent(note);
+
+    this.stepIndex = (this.stepIndex + 1) % this.currentSong.notes.length;
+  }
+
+  triggerNoteEvent(note) {
+    note.played = true;
+    if (this.currentSong.mode === 'rasgueo' && note.chord) {
+      this.strumChordByName(note.chord);
+    } else {
+      this.playGuitarNote(note.string, note.fret, 1.1);
+    }
+
+    this.score += 50;
+    document.getElementById('scoreHeaderText').textContent = `${this.score} PTS`;
+    this.updateLiveInstruction(note);
+  }
+
+  updateLiveInstruction(note) {
+    if (!note) return;
+    const bannerMain = document.getElementById('liveStepText');
+    const bannerSub = document.getElementById('livePluckHint');
+
+    if (this.currentSong.mode === 'rasgueo' && note.chord) {
+      bannerMain.innerHTML = `<span class="dot f${note.finger}">${note.finger}</span> Acorde <strong>${note.chord}</strong> — ${note.lyric}`;
+      bannerSub.textContent = `Mano Derecha: Rasgueo ${note.dir}`;
+    } else {
+      const fName = FINGER_NAMES[note.finger] || 'Al aire';
+      bannerMain.innerHTML = `
+        <span class="dot f${note.finger}">${note.finger}</span>
+        <span>Pisa <strong>Traste ${note.fret}</strong> en <strong>${STRING_LABELS[note.string]}</strong> con <strong>${fName}</strong></span>
+      `;
+      bannerSub.textContent = `Puntea: Cuerda ${note.string} (${note.lyric})`;
+    }
+
+    this.renderFretboardGuide(note);
+    this.renderPluckVisualizer(note);
+  }
+
+  /* -------------------- CANVAS HIGHWAY Y PELOTITA YOUSICIAN -------------------- */
+  animateHighway(now = performance.now()) {
+    const dt = (now - this.lastFrameTime) / 1000;
+    this.lastFrameTime = now;
+
+    if (this.isPlaying) {
+      const beatsPerSec = this.bpm / 60;
+      this.currentBeat += dt * beatsPerSec;
+
+      // Pulso de batería de fondo en cada tiempo entero
+      const intBeat = Math.floor(this.currentBeat);
+      if (intBeat >= 0 && intBeat !== this.lastDrumBeat) {
+        this.lastDrumBeat = intBeat;
+        this.playBackingBeat(intBeat);
+      }
+
+      // Disparar notas cuando cruzan la línea de golpe
+      this.currentSong.notes.forEach(note => {
+        if (!note.played && this.currentBeat >= note.beat) {
+          this.triggerNoteEvent(note);
         }
       });
 
-      const source = this.audioCtx.createMediaStreamSource(this.micStream);
-
-      // Filtros de limpieza para guitarra (65 Hz a 950 Hz) para eliminar ruido ambiente
-      const highpass = this.audioCtx.createBiquadFilter();
-      highpass.type = 'highpass';
-      highpass.frequency.value = 65;
-
-      const lowpass = this.audioCtx.createBiquadFilter();
-      lowpass.type = 'lowpass';
-      lowpass.frequency.value = 950;
-
-      this.analyser = this.audioCtx.createAnalyser();
-      this.analyser.fftSize = 4096;
-
-      source.connect(highpass);
-      highpass.connect(lowpass);
-      lowpass.connect(this.analyser);
-
-      this.micListening = true;
-      this.pitchHistory = [];
-      btn.classList.add('active-mic');
-      icon.className = 'fa-solid fa-microphone';
-      text.textContent = 'Micrófono Activo';
-
-      this.updateTunerLoop();
-    } catch (err) {
-      alert('No se pudo acceder al micrófono. Verifica los permisos del navegador en HTTPS o localhost.');
-    }
-  },
-
-  /**
-   * Algoritmo NSDF (Normalized Square Difference Function) con interpolación parabólica.
-   * Detecta con precisión la fundamental desde 82.41 Hz (E2) hasta 329.63 Hz (E4).
-   */
-  detectPitchNSDF(buffer, sampleRate) {
-    let rms = 0;
-    for (let i = 0; i < buffer.length; i++) {
-      rms += buffer[i] * buffer[i];
-    }
-    rms = Math.sqrt(rms / buffer.length);
-    if (rms < 0.012) return -1; // Compuerta de ruido (Noise Gate)
-
-    const minFreq = 70;  // Cubre 6ª cuerda E2 (82.41 Hz) desafinada hacia abajo
-    const maxFreq = 420; // Cubre 1ª cuerda E4 (329.63 Hz) desafinada hacia arriba
-    const minLag = Math.floor(sampleRate / maxFreq);
-    const maxLag = Math.min(Math.ceil(sampleRate / minFreq), Math.floor(buffer.length / 2));
-
-    const nsdf = new Float32Array(maxLag + 1);
-    for (let tau = minLag; tau <= maxLag; tau++) {
-      let acf = 0;
-      let div = 0;
-      for (let i = 0; i < buffer.length - maxLag; i++) {
-        acf += buffer[i] * buffer[i + tau];
-        div += buffer[i] * buffer[i] + buffer[i + tau] * buffer[i + tau];
-      }
-      nsdf[tau] = div > 0 ? (2 * acf) / div : 0;
-    }
-
-    // Encontrar picos positivos después de un cruce por cero
-    let maxPeak = 0;
-    const peaks = [];
-    for (let tau = minLag + 1; tau < maxLag; tau++) {
-      if (nsdf[tau] > 0.5 && nsdf[tau] > nsdf[tau - 1] && nsdf[tau] >= nsdf[tau + 1]) {
-        peaks.push(tau);
-        if (nsdf[tau] > maxPeak) maxPeak = nsdf[tau];
-      }
-    }
-    if (peaks.length === 0 || maxPeak < 0.62) return -1;
-
-    // Seleccionar el primer pico que supere el 82% del máximo para evitar saltar a la octava
-    const threshold = maxPeak * 0.82;
-    let chosenLag = peaks[0];
-    for (const p of peaks) {
-      if (nsdf[p] >= threshold) {
-        chosenLag = p;
-        break;
+      const lastBeat = this.currentSong.notes[this.currentSong.notes.length - 1].beat;
+      if (this.currentBeat > lastBeat + 2) {
+        this.restartSong();
       }
     }
 
-    // Interpolación parabólica para precisión sub-muestra
-    const y1 = nsdf[chosenLag - 1];
-    const y2 = nsdf[chosenLag];
-    const y3 = nsdf[chosenLag + 1];
-    const denom = y1 - 2 * y2 + y3;
-    const delta = denom !== 0 ? (0.5 * (y1 - y3)) / denom : 0;
-
-    return sampleRate / (chosenLag + delta);
-  },
-
-  updateTunerLoop() {
-    if (!this.micListening) return;
-
-    const buffer = new Float32Array(this.analyser.fftSize);
-    this.analyser.getFloatTimeDomainData(buffer);
-    const rawFreq = this.detectPitchNSDF(buffer, this.audioCtx.sampleRate);
-
-    if (rawFreq !== -1) {
-      this.pitchHistory.push(rawFreq);
-      if (this.pitchHistory.length > 5) this.pitchHistory.shift();
-
-      // Mediana para eliminar saltos bruscos
-      const sorted = [...this.pitchHistory].sort((a, b) => a - b);
-      const smoothFreq = sorted[Math.floor(sorted.length / 2)];
-      this.renderGuitarTunaUI(smoothFreq);
-    }
-
-    requestAnimationFrame(() => this.updateTunerLoop());
-  },
-
-  selectTunerString(stringId) {
-    this.lockedStringId = stringId;
-    const targetObj = GUITAR_STRINGS.find(s => s.id === stringId);
-    if (targetObj) {
-      this.playPluckedString(targetObj.freq, 0, 2.2);
-    }
-
-    document.getElementById('autoModeBtn').textContent = `Fijada: ${targetObj.label} (Toca para Auto)`;
-    this.highlightHeadstockString(stringId, false);
-  },
-
-  setTunerAutoMode() {
-    this.lockedStringId = null;
-    document.getElementById('autoModeBtn').textContent = 'Modo: Automático (6 Cuerdas)';
-    this.highlightHeadstockString(null, false);
-  },
-
-  highlightHeadstockString(activeId, isTuned) {
-    GUITAR_STRINGS.forEach(s => {
-      const peg = document.getElementById(`peg-${s.id}`);
-      const line = document.getElementById(`line-${s.id}`);
-      peg.classList.remove('active-target', 'tuned-ok');
-      line.classList.remove('active', 'tuned');
-
-      if (s.id === activeId) {
-        if (isTuned) {
-          peg.classList.add('tuned-ok');
-          line.classList.add('tuned');
-        } else {
-          peg.classList.add('active-target');
-          line.classList.add('active');
-        }
-      }
-    });
-  },
-
-  renderGuitarTunaUI(detectedFreq) {
-    // 1. Determinar cuerda objetivo (fijada por el usuario o la más cercana de las 6)
-    let targetString = null;
-    if (this.lockedStringId) {
-      targetString = GUITAR_STRINGS.find(s => s.id === this.lockedStringId);
-    } else {
-      let minDiff = Infinity;
-      for (const s of GUITAR_STRINGS) {
-        const diff = Math.abs(detectedFreq - s.freq);
-        if (diff < minDiff) {
-          minDiff = diff;
-          targetString = s;
-        }
-      }
-    }
-    if (!targetString) return;
-
-    // 2. Calcular desviación en centavos y unidades GuitarTuna
-    // cents < 0 significa que la cuerda suena más baja que el objetivo
-    const cents = 1200 * Math.log2(detectedFreq / targetString.freq);
-    const clampedCents = Math.max(-50, Math.min(50, cents));
-
-    // Escala numérica intuitiva (-25 a +25):
-    // REGLA SOLICITADA:
-    // - Si la frecuencia está baja (necesita subir tono) -> Número POSITIVO (+1, +5...) + "Tensar"
-    // - Si la frecuencia está alta (necesita bajar tono) -> Número NEGATIVO (-1, -5...) + "Destensar"
-    const rawUnits = Math.round(-clampedCents / 2);
-    const isTuned = Math.abs(cents) <= 3.5; // Dentro de ±3.5 centavos = 0 (Afinada)
-
-    // Elementos del DOM
-    const bubble = document.getElementById('gtNeedleBubble');
-    const centerLine = document.getElementById('gtCenterLine');
-    const noteBadge = document.getElementById('tunerNoteName');
-    const freqDisplay = document.getElementById('tunerFreqDisplay');
-    const tensionBox = document.getElementById('tensionInstructionBox');
-    const tensionNum = document.getElementById('tensionNumberDisplay');
-    const tensionTxt = document.getElementById('tensionTextDisplay');
-
-    // Posición visual de la aguja (50% es el centro exacto)
-    const percentPos = 50 + (clampedCents / 50) * 42;
-    bubble.style.left = `${ isTuned ? 50 : percentPos }%`;
-
-    noteBadge.textContent = targetString.label;
-    freqDisplay.textContent = `${detectedFreq.toFixed(2)} Hz  •  Objetivo: ${targetString.freq.toFixed(2)} Hz`;
-
-    tensionBox.classList.remove('state-tuned', 'state-tensar', 'state-destensar');
-    bubble.classList.remove('in-tune', 'needs-adjust');
-    centerLine.classList.remove('in-tune');
-    noteBadge.classList.remove('in-tune');
-
-    if (isTuned || rawUnits === 0) {
-      bubble.textContent = '0';
-      bubble.classList.add('in-tune');
-      centerLine.classList.add('in-tune');
-      noteBadge.classList.add('in-tune');
-
-      tensionBox.classList.add('state-tuned');
-      tensionNum.textContent = '0';
-      tensionTxt.innerHTML = '<i class="fa-solid fa-circle-check"></i> ¡Cuerda Afinada!';
-      this.highlightHeadstockString(targetString.id, true);
-    } else if (rawUnits > 0) {
-      // Frecuencia baja -> Mostrar número positivo (+1, +5, etc.) + "Tensar"
-      const formattedPositive = `+${rawUnits}`;
-      bubble.textContent = formattedPositive;
-      bubble.classList.add('needs-adjust');
-
-      tensionBox.classList.add('state-tensar');
-      tensionNum.textContent = formattedPositive;
-      tensionTxt.innerHTML = '<i class="fa-solid fa-arrow-up"></i> Tensar';
-      this.highlightHeadstockString(targetString.id, false);
-    } else {
-      // Frecuencia alta -> Mostrar número negativo (-1, -5, etc.) + "Destensar"
-      const formattedNegative = `${rawUnits}`;
-      bubble.textContent = formattedNegative;
-      bubble.classList.add('needs-adjust');
-
-      tensionBox.classList.add('state-destensar');
-      tensionNum.textContent = formattedNegative;
-      tensionTxt.innerHTML = '<i class="fa-solid fa-arrow-down"></i> Destensar';
-      this.highlightHeadstockString(targetString.id, false);
-    }
-  },
-
-  /* ==================== SECCIÓN DE PRÁCTICA Y DIAPASÓN POR COLORES ==================== */
-  renderChordSelectorPills() {
-    const container = document.getElementById('chordPillsContainer');
-    const progPill = `<button class="chord-pill ${this.progressionMode ? 'active' : ''}" id="pill-PROGRESSION" onclick="app.enableProgressionMode()">
-      <i class="fa-solid fa-repeat"></i> Progresión (Em → Am → C → G → D)
-    </button>`;
-
-    const chordButtons = Object.keys(CHORDS_DATA).map(key => `
-      <button class="chord-pill ${(!this.progressionMode && this.currentChordKey === key) ? 'active' : ''}" id="pill-${key}" onclick="app.selectChord('${key}', false)">
-        Acorde ${key}
-      </button>
-    `).join('');
-
-    container.innerHTML = progPill + chordButtons;
-  },
-
-  enableProgressionMode() {
-    this.progressionMode = true;
-    this.renderChordSelectorPills();
-    this.buildHighwaySequence();
-    this.drawHighwayFrame(0);
-  },
-
-  selectChord(chordKey, keepProgressionState = false) {
-    if (!keepProgressionState) {
-      this.progressionMode = false;
-    }
-    this.currentChordKey = chordKey;
-    this.renderChordSelectorPills();
-
-    const chord = CHORDS_DATA[chordKey];
-    document.getElementById('activeChordTitle').textContent = chord.name;
-    document.getElementById('btnChordLabel').textContent = chord.key;
-
-    this.renderHorizontalFretboard(chord);
-    this.renderStringStepList(chord);
-    this.buildHighwaySequence();
-    this.drawHighwayFrame(0);
-  },
-
-  renderHorizontalFretboard(chord) {
-    const container = document.getElementById('interactiveFretboardContainer');
-    const width = 540;
-    const height = 210;
-    const leftPad = 68;
-    const rightPad = 24;
-    const topPad = 28;
-    const bottomPad = 24;
-    const numFrets = 4;
-    const fretWidth = (width - leftPad - rightPad) / numFrets;
-    const stringSpacing = (height - topPad - bottomPad) / 5;
-
-    let svg = `<svg viewBox="0 0 ${width} ${height}" width="100%" height="210" style="display:block;">`;
-
-    // Numeración de trastes arriba
-    for (let f = 1; f <= numFrets; f++) {
-      const xCenter = leftPad + (f - 0.5) * fretWidth;
-      svg += `<text x="${xCenter}" y="16" fill="#64748B" font-size="11" font-weight="700" text-anchor="middle">Traste ${f}</text>`;
-    }
-
-    // Cejuela (Nut) y Trastes verticales
-    svg += `<line x1="${leftPad}" y1="${topPad}" x2="${leftPad}" y2="${height - bottomPad}" stroke="#E2E8F0" stroke-width="5" stroke-linecap="round" />`;
-    for (let f = 1; f <= numFrets; f++) {
-      const x = leftPad + f * fretWidth;
-      svg += `<line x1="${x}" y1="${topPad}" x2="${x}" y2="${height - bottomPad}" stroke="rgba(255,255,255,0.14)" stroke-width="2" />`;
-    }
-
-    // Dibujar las 6 cuerdas (arriba 1ª Mi aguda E4 -> abajo 6ª Mi grave E2, igual que tablatura)
-    for (let sIdx = 5; sIdx >= 0; sIdx--) {
-      const visualRow = 5 - sIdx; // 0 arriba (1ª cuerda), 5 abajo (6ª cuerda)
-      const y = topPad + visualRow * stringSpacing;
-      const fret = chord.frets[sIdx];
-      const finger = chord.fingers[sIdx];
-      const freq = chord.freqs[sIdx];
-      const stringInfo = GUITAR_STRINGS[sIdx];
-      const strokeThickness = 1.3 + (5 - visualRow) * 0.45;
-
-      // Etiqueta de la cuerda a la izquierda
-      svg += `<text x="8" y="${y + 4}" fill="#CBD5E1" font-size="12" font-weight="700">${stringInfo.stringNum}ª ${stringInfo.note}</text>`;
-
-      // Línea de la cuerda interactiva
-      const lineColor = fret === -1 ? 'rgba(255, 82, 82, 0.25)' : 'rgba(255, 255, 255, 0.38)';
-      svg += `<line x1="${leftPad}" y1="${y}" x2="${width - rightPad}" y2="${y}" stroke="${lineColor}" stroke-width="${strokeThickness}" style="cursor:pointer;" onclick="app.playPluckedString(${freq || 0})" />`;
-
-      if (fret === -1) {
-        // Cuerda silenciada (X)
-        svg += `<text x="${leftPad - 16}" y="${y + 5}" fill="#FF5252" font-size="14" font-weight="800" text-anchor="middle">✕</text>`;
-      } else if (fret === 0) {
-        // Cuerda al aire (O)
-        svg += `<circle cx="${leftPad - 16}" cy="${y}" r="6" fill="none" stroke="#00E676" stroke-width="2.2" />`;
-      } else {
-        // Círculo del dedo con su color oficial Yousician
-        const cx = leftPad + (fret - 0.5) * fretWidth;
-        const color = FINGER_COLORS[finger] || '#00E676';
-        const textColor = finger === 4 ? '#FFFFFF' : '#05080E';
-        svg += `
-          <g style="cursor:pointer;" onclick="app.playPluckedString(${freq || 0})">
-            <circle cx="${cx}" cy="${y}" r="13" fill="${color}" />
-            <text x="${cx}" y="${y + 4}" fill="${textColor}" font-size="12" font-weight="800" text-anchor="middle">${finger}</text>
-          </g>
-        `;
-      }
-    }
-
-    svg += `</svg>`;
-    container.innerHTML = svg;
-  },
-
-  renderStringStepList(chord) {
-    const listContainer = document.getElementById('stringStepByStepList');
-    let html = '';
-
-    // Mostrar de 6ª a 1ª cuerda claramente
-    for (let i = 0; i < 6; i++) {
-      const sInfo = GUITAR_STRINGS[i];
-      const fret = chord.frets[i];
-      const finger = chord.fingers[i];
-      const freq = chord.freqs[i];
-
-      if (fret === -1) {
-        html += `
-          <div class="string-guide-row muted-string">
-            <span><strong>${sInfo.label}</strong></span>
-            <span style="color:var(--danger); font-weight:700;">✕ No tocar</span>
-          </div>
-        `;
-      } else if (fret === 0) {
-        html += `
-          <div class="string-guide-row" style="cursor:pointer;" onclick="app.playPluckedString(${freq})">
-            <span><strong>${sInfo.label}</strong> • Traste 0</span>
-            <span style="color:var(--accent-green); font-weight:700;">Al aire (Tocar abierta)</span>
-          </div>
-        `;
-      } else {
-        const dotClass = `f${finger}`;
-        html += `
-          <div class="string-guide-row" style="cursor:pointer;" onclick="app.playPluckedString(${freq})">
-            <span><strong>${sInfo.label}</strong> • Traste ${fret}</span>
-            <span class="legend-pill">
-              <span class="dot ${dotClass}">${finger}</span>
-              ${FINGER_NAMES[finger]}
-            </span>
-          </div>
-        `;
-      }
-    }
-
-    listContainer.innerHTML = html;
-  },
-
-  /* ==================== PISTA INTERACTIVA EN VIVO (CANVAS YOUSICIAN) ==================== */
-  setBpm(val) {
-    this.bpm = parseInt(val, 10);
-    document.getElementById('bpmLabel').textContent = `${this.bpm} BPM`;
-  },
-
-  buildHighwaySequence() {
-    const sequenceKeys = this.progressionMode
-      ? ['Em', 'Am', 'C', 'G', 'D']
-      : [this.currentChordKey];
-
-    this.highwayEvents = [];
-    const spacingPx = 250;
-    for (let i = 0; i < 16; i++) {
-      const key = sequenceKeys[i % sequenceKeys.length];
-      this.highwayEvents.push({
-        chordKey: key,
-        xOffset: 300 + i * spacingPx,
-        played: false
-      });
-    }
-    this.highwayScrollX = 0;
-  },
-
-  toggleHighwayPlayback() {
-    const btn = document.getElementById('playTrackBtn');
-    this.highwayPlaying = !this.highwayPlaying;
-
-    if (this.highwayPlaying) {
-      this.ensureAudioContext();
-      btn.innerHTML = '<i class="fa-solid fa-pause"></i> Pausar Pista';
-      this.lastFrameTime = performance.now();
-      requestAnimationFrame((t) => this.animateHighway(t));
-    } else {
-      btn.innerHTML = '<i class="fa-solid fa-play"></i> Iniciar Pista';
-    }
-  },
-
-  animateHighway(timestamp) {
-    if (!this.highwayPlaying) return;
-    const dt = (timestamp - this.lastFrameTime) / 1000;
-    this.lastFrameTime = timestamp;
-
-    const pixelsPerSecond = (this.bpm / 60) * 115;
-    this.highwayScrollX += pixelsPerSecond * dt;
-
-    this.drawHighwayFrame();
+    this.drawHighwayCanvas();
     requestAnimationFrame((t) => this.animateHighway(t));
-  },
+  }
 
-  drawHighwayFrame() {
+  drawHighwayCanvas() {
     const canvas = document.getElementById('highwayCanvas');
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -1703,166 +1128,325 @@ const app = {
 
     ctx.clearRect(0, 0, W, H);
 
-    const hitLineX = 145;
-    const topMargin = 36;
-    const bottomMargin = 24;
-    const stringGap = (H - topMargin - bottomMargin) / 5;
+    const hitX = 155;
+    const pixelsPerBeat = 150;
+    const stringNames = ['1e', '2B', '3G', '4D', '5A', '6E'];
 
-    // 1. Dibujar las 6 cuerdas horizontales (arriba 1ª E4, abajo 6ª E2)
-    for (let s = 0; s < 6; s++) {
-      const sIdx = 5 - s; // 5 = E4 arriba, 0 = E2 abajo
-      const y = topMargin + s * stringGap;
+    // 1. Dibujar las 6 cuerdas horizontales
+    for (let s = 1; s <= 6; s++) {
+      const y = 26 + (s - 1) * 36;
       ctx.strokeStyle = 'rgba(255, 255, 255, 0.16)';
-      ctx.lineWidth = 1.2 + s * 0.45;
+      ctx.lineWidth = 1.2 + (s - 1) * 0.35;
       ctx.beginPath();
       ctx.moveTo(0, y);
       ctx.lineTo(W, y);
       ctx.stroke();
 
-      // Etiqueta de cada cuerda a la izquierda
       ctx.fillStyle = '#94A3B8';
-      ctx.font = '700 12px "Plus Jakarta Sans"';
-      ctx.fillText(`${GUITAR_STRINGS[sIdx].stringNum}ª ${GUITAR_STRINGS[sIdx].note}`, 14, y + 4);
+      ctx.font = '700 12px "JetBrains Mono", monospace';
+      ctx.fillText(stringNames[s - 1], 14, y + 4);
     }
 
-    // 2. Línea vertical de impacto (Zona de rasgueo Yousician)
+    // 2. Línea vertical de zona de toque (Hit Zone)
     ctx.strokeStyle = '#00E676';
     ctx.lineWidth = 3;
     ctx.beginPath();
-    ctx.moveTo(hitLineX, 12);
-    ctx.lineTo(hitLineX, H - 12);
+    ctx.moveTo(hitX, 10);
+    ctx.lineTo(hitX, H - 10);
     ctx.stroke();
 
-    // 3. Dibujar bloques de acordes y notas coloreadas por dedo
-    const totalLoopWidth = this.highwayEvents.length * 250;
-    if (this.highwayScrollX > totalLoopWidth) {
-      this.highwayScrollX = 0;
-      this.highwayEvents.forEach(ev => (ev.played = false));
-    }
+    // 3. Dibujar notas de punteo o bloques de rasgueo
+    let activeTargetNote = this.currentSong.notes[0];
 
-    this.highwayEvents.forEach((ev) => {
-      const screenX = ev.xOffset - this.highwayScrollX;
+    this.currentSong.notes.forEach(note => {
+      const x = hitX + (note.beat - this.currentBeat) * pixelsPerBeat;
+      const y = 26 + (note.string - 1) * 36;
 
-      // Disparar sonido y actualizar acorde guía al cruzar la línea verde
-      if (!ev.played && screenX <= hitLineX && screenX > hitLineX - 25 && this.highwayPlaying) {
-        ev.played = true;
-        this.strumChord(ev.chordKey);
-        if (this.currentChordKey !== ev.chordKey) {
-          this.currentChordKey = ev.chordKey;
-          const chordObj = CHORDS_DATA[ev.chordKey];
-          document.getElementById('activeChordTitle').textContent = chordObj.name;
-          document.getElementById('btnChordLabel').textContent = chordObj.key;
-          this.renderHorizontalFretboard(chordObj);
-          this.renderStringStepList(chordObj);
-        }
+      if (note.beat >= this.currentBeat && (!activeTargetNote || note.beat < activeTargetNote.beat || activeTargetNote.beat < this.currentBeat)) {
+        activeTargetNote = note;
       }
 
-      if (screenX < -80 || screenX > W + 80) return;
+      if (x < -80 || x > W + 80) return;
 
-      const chord = CHORDS_DATA[ev.chordKey];
+      const color = FINGER_COLORS[note.finger] || '#00E676';
 
-      // Etiqueta superior del acorde
-      ctx.fillStyle = ev.played ? '#00E676' : '#00B0FF';
-      ctx.font = '800 14px "Plus Jakarta Sans"';
-      ctx.fillText(chord.key, screenX - 12, 22);
-
-      // Guía vertical del rasgueo
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.14)';
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(screenX, topMargin);
-      ctx.lineTo(screenX, H - bottomMargin);
-      ctx.stroke();
-
-      // Dibujar cada nota en su cuerda con el color del dedo correspondiente
-      for (let s = 0; s < 6; s++) {
-        const sIdx = 5 - s;
-        const fret = chord.frets[sIdx];
-        const finger = chord.fingers[sIdx];
-        if (fret === -1) continue;
-
-        const y = topMargin + s * stringGap;
-        const badgeColor = FINGER_COLORS[finger] || '#94A3B8';
-
-        ctx.fillStyle = badgeColor;
+      if (this.currentSong.mode === 'rasgueo' && note.chord) {
+        // Bloque de Acorde y Flecha de Rasgueo
+        ctx.fillStyle = 'rgba(0, 176, 255, 0.18)';
+        ctx.strokeStyle = color;
+        ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.roundRect(screenX - 16, y - 11, 32, 22, 6);
+        ctx.roundRect(x - 36, 16, 72, H - 32, 12);
+        ctx.fill();
+        ctx.stroke();
+
+        ctx.fillStyle = '#FFFFFF';
+        ctx.font = '800 18px "Plus Jakarta Sans"';
+        ctx.textAlign = 'center';
+        ctx.fillText(note.chord, x, H / 2 - 4);
+        ctx.font = '700 11px "JetBrains Mono"';
+        ctx.fillStyle = '#00E676';
+        ctx.fillText(note.dir, x, H / 2 + 18);
+        ctx.textAlign = 'left';
+      } else {
+        // Píldora de Punteo con Traste y Color de Dedo
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        ctx.roundRect(x - 20, y - 15, 40, 30, 9);
         ctx.fill();
 
-        // Texto dentro del bloque: Traste (y dedo)
-        ctx.fillStyle = finger === 4 ? '#FFFFFF' : '#04080E';
-        ctx.font = '800 11px "JetBrains Mono"';
+        // Número de Traste adentro
+        ctx.fillStyle = note.finger === 4 ? '#FFFFFF' : '#05080D';
+        ctx.font = '800 15px "JetBrains Mono", monospace';
         ctx.textAlign = 'center';
-        ctx.fillText(fret === 0 ? '0' : `${fret}`, screenX, y + 4);
+        ctx.fillText(note.fret, x, y + 5);
+
+        // Etiqueta pequeña superior con el dedo
+        ctx.fillStyle = 'rgba(255,255,255,0.75)';
+        ctx.font = '600 10px "Plus Jakarta Sans"';
+        ctx.fillText(note.finger === 0 ? 'Aire' : `D${note.finger}`, x, y - 20);
         ctx.textAlign = 'left';
       }
     });
-  },
 
-  /* ==================== BIBLIOTECA DE ACORDES (DIAGRAMAS VERTICALES) ==================== */
-  renderChordsLibrary() {
-    const grid = document.getElementById('chordsLibraryGrid');
-    grid.innerHTML = Object.values(CHORDS_DATA).map(chord => `
-      <div class="chord-box-card" onclick="app.strumChord('${chord.key}')">
-        <div style="width:100%; display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
-          <h4 style="font-size:17px; font-weight:800;">${chord.name}</h4>
-          <span style="color:var(--accent-green); font-size:13px; font-weight:700;">
-            <i class="fa-solid fa-volume-high"></i> Oír
+    // 4. Pelotita Saltarina estilo Yousician
+    if (activeTargetNote) {
+      const targetY = 26 + (activeTargetNote.string - 1) * 36;
+      const bounceOffset = Math.abs(Math.sin(this.currentBeat * Math.PI)) * 22;
+
+      ctx.fillStyle = '#00E676';
+      ctx.beginPath();
+      ctx.arc(hitX, targetY - 22 - bounceOffset, 8, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  /* -------------------- DIAPASÓN EN VIVO (MANO IZQUIERDA) -------------------- */
+  renderFretboardGuide(activeNote) {
+    const box = document.getElementById('liveFretboardBox');
+    if (!box) return;
+
+    let activeDotHTML = '';
+    if (activeNote) {
+      const s = activeNote.string;
+      const f = activeNote.fret;
+      const finger = activeNote.finger;
+      const color = FINGER_COLORS[finger] || '#00E676';
+      const x = f === 0 ? 28 : 45 + (f - 0.5) * 68;
+      const y = 20 + (s - 1) * 24;
+
+      activeDotHTML = `
+        <circle cx="${x}" cy="${y}" r="11" fill="${color}" />
+        <text x="${x}" y="${y + 4}" font-size="11" font-weight="800" text-anchor="middle" fill="#05080C">${finger === 0 ? '0' : 'D' + finger}</text>
+      `;
+    }
+
+    box.innerHTML = `
+      <svg viewBox="0 0 540 165" style="width:100%; min-width:460px; height:auto; display:block;">
+        <!-- Cejuela (Traste 0) -->
+        <line x1="45" y1="14" x2="45" y2="146" stroke="#F8FAFC" stroke-width="5" />
+        <!-- Trastes 1 al 7 -->
+        ${[1, 2, 3, 4, 5, 6, 7].map(f => {
+          const x = 45 + f * 68;
+          return `
+            <line x1="${x}" y1="14" x2="${x}" y2="146" stroke="rgba(255,255,255,0.22)" stroke-width="2" />
+            <text x="${x - 34}" y="162" font-size="11" fill="#94A3B8" text-anchor="middle">Traste ${f}</text>
+          `;
+        }).join('')}
+        <!-- 6 Cuerdas -->
+        ${[1, 2, 3, 4, 5, 6].map(s => {
+          const y = 20 + (s - 1) * 24;
+          const isCurrent = activeNote && activeNote.string === s;
+          return `
+            <line x1="15" y1="${y}" x2="525" y2="${y}" stroke="${isCurrent ? '#00E676' : 'rgba(255,255,255,0.3)'}" stroke-width="${isCurrent ? 3 : 1 + s * 0.25}" />
+            <text x="10" y="${y + 4}" font-size="10" font-weight="700" fill="#94A3B8">${s}</text>
+          `;
+        }).join('')}
+        ${activeDotHTML}
+      </svg>
+    `;
+  }
+
+  /* -------------------- MONITOR DE PUNTEO (MANO DERECHA) -------------------- */
+  renderPluckVisualizer(activeNote) {
+    const list = document.getElementById('pluckVisualizerList');
+    if (!list) return;
+
+    list.innerHTML = [1, 2, 3, 4, 5, 6].map(s => {
+      const isPlucking = activeNote && activeNote.string === s;
+      return `
+        <div class="pluck-string-row ${isPlucking ? 'pluck-now' : ''}" onclick="app.playGuitarNote(${s}, 0, 1.0)">
+          <span><strong>${STRING_LABELS[s]}</strong></span>
+          <span style="font-weight:800; color:${isPlucking ? 'var(--accent-green)' : 'var(--text-muted)'};">
+            ${isPlucking ? '👉 ¡PUNTEA ESTA CUERDA!' : 'Tocar al aire'}
           </span>
         </div>
-        ${this.createVerticalChordSVG(chord)}
-        <button class="btn btn-surface" style="width:100%; margin-top:12px; min-height:38px; padding:8px;" onclick="event.stopPropagation(); app.selectChord('${chord.key}', false); app.switchTab('practiceView', document.querySelector('.nav-btn'));">
-          Practicar en Pista
-        </button>
-      </div>
-    `).join('');
-  },
-
-  createVerticalChordSVG(chord) {
-    const W = 175, H = 195;
-    const padX = 28, padY = 32;
-    const stringGap = (W - padX * 2) / 5;
-    const fretGap = (H - padY - 22) / 4;
-
-    let svg = `<svg width="${W}" height="${H}" viewBox="0 0 ${W} ${H}">`;
-    // Cejuela
-    svg += `<line x1="${padX}" y1="${padY}" x2="${W - padX}" y2="${padY}" stroke="#F8FAFC" stroke-width="4" />`;
-
-    // 4 Trastes
-    for (let f = 1; f <= 4; f++) {
-      const y = padY + f * fretGap;
-      svg += `<line x1="${padX}" y1="${y}" x2="${W - padX}" y2="${y}" stroke="rgba(255,255,255,0.15)" stroke-width="1.5" />`;
-    }
-
-    // 6 Cuerdas (izquierda 6ª E2 -> derecha 1ª E4)
-    for (let s = 0; s < 6; s++) {
-      const x = padX + s * stringGap;
-      const fret = chord.frets[s];
-      const finger = chord.fingers[s];
-
-      svg += `<line x1="${x}" y1="${padY}" x2="${x}" y2="${padY + 4 * fretGap}" stroke="rgba(255,255,255,0.32)" stroke-width="${2.2 - s * 0.2}" />`;
-
-      if (fret === -1) {
-        svg += `<text x="${x}" y="${padY - 10}" fill="#FF5252" font-size="12" font-weight="800" text-anchor="middle">✕</text>`;
-      } else if (fret === 0) {
-        svg += `<circle cx="${x}" cy="${padY - 14}" r="5" fill="none" stroke="#00E676" stroke-width="2" />`;
-      } else {
-        const cy = padY + (fret - 0.5) * fretGap;
-        const fill = FINGER_COLORS[finger];
-        const txtCol = finger === 4 ? '#FFF' : '#06090F';
-        svg += `
-          <circle cx="${x}" cy="${cy}" r="10.5" fill="${fill}" />
-          <text x="${x}" y="${cy + 4}" fill="${txtCol}" font-size="11" font-weight="800" text-anchor="middle">${finger}</text>
-        `;
-      }
-    }
-
-    svg += `</svg>`;
-    return svg;
+      `;
+    }).join('');
   }
-};
 
-window.addEventListener('DOMContentLoaded', () => app.init());
+  /* -------------------- BIBLIOTECA DE ACORDES -------------------- */
+  renderChordsLibrary() {
+    const grid = document.getElementById('chordsLibraryGrid');
+    if (!grid) return;
+
+    grid.innerHTML = Object.keys(CHORDS_LIBRARY).map(key => {
+      const c = CHORDS_LIBRARY[key];
+      const dotsSVG = c.dots.map(d => {
+        const x = 20 + (6 - d.s) * 18;
+        const y = 22 + (d.f - 0.5) * 28;
+        const col = FINGER_COLORS[d.finger];
+        return `
+          <circle cx="${x}" cy="${y}" r="9" fill="${col}" />
+          <text x="${x}" y="${y + 4}" font-size="10" font-weight="800" text-anchor="middle" fill="#06090E">${d.finger}</text>
+        `;
+      }).join('');
+
+      return `
+        <div class="chord-box-card" onclick="app.strumChordByName('${key}')">
+          <div style="display:flex; justify-content:space-between; width:100%; margin-bottom:10px;">
+            <strong style="font-size:17px;">${c.name}</strong>
+            <i class="fa-solid fa-volume-high" style="color:var(--accent-green);"></i>
+          </div>
+          <svg viewBox="0 0 130 140" width="120" height="130">
+            <line x1="20" y1="22" x2="110" y2="22" stroke="#FFF" stroke-width="4" />
+            ${[50, 78, 106, 134].map(y => `<line x1="20" y1="${y}" x2="110" y2="${y}" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" />`).join('')}
+            ${[0, 1, 2, 3, 4, 5].map(i => {
+              const x = 20 + i * 18;
+              return `<line x1="${x}" y1="22" x2="${x}" y2="134" stroke="rgba(255,255,255,0.35)" stroke-width="1.5" />`;
+            }).join('')}
+            ${dotsSVG}
+          </svg>
+          <span style="font-size:11px; color:var(--accent-green); font-weight:700; margin-top:8px;">Toca para oír rasgueo</span>
+        </div>
+      `;
+    }).join('');
+  }
+
+  /* -------------------- AFINADOR Y MICRÓFONO -------------------- */
+  playReferenceString(noteName, freq, btnEl) {
+    document.querySelectorAll('.string-peg-btn').forEach(b => b.classList.remove('active-target'));
+    if (btnEl) btnEl.classList.add('active-target');
+
+    const stringMap = { 'E4': 1, 'B3': 2, 'G3': 3, 'D3': 4, 'A2': 5, 'E2': 6 };
+    this.playGuitarNote(stringMap[noteName] || 1, 0, 1.8);
+    document.getElementById('tunerNoteBadge').textContent = noteName;
+    document.getElementById('tunerFreqReadout').textContent = `${freq.toFixed(1)} Hz (Referencia)`;
+  }
+
+  async toggleMicrophone() {
+    const btn = document.getElementById('globalMicBtn');
+    const icon = document.getElementById('micStatusIcon');
+    const txt = document.getElementById('micStatusText');
+
+    if (this.isMicActive) {
+      this.isMicActive = false;
+      btn.classList.remove('active-toggle');
+      icon.className = 'fa-solid fa-microphone-slash';
+      txt.textContent = 'Activar Micrófono';
+      return;
+    }
+
+    try {
+      this.ensureAudio();
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      const source = this.audioCtx.createMediaStreamSource(stream);
+      this.analyser = this.audioCtx.createAnalyser();
+      this.analyser.fftSize = 2048;
+      source.connect(this.analyser);
+
+      this.isMicActive = true;
+      btn.classList.add('active-toggle');
+      icon.className = 'fa-solid fa-microphone';
+      txt.textContent = 'Micrófono Escuchando';
+      this.pitchLoop();
+    } catch (e) {
+      alert('Permite el acceso al micrófono para usar el afinador en tiempo real.');
+    }
+  }
+
+  pitchLoop() {
+    if (!this.isMicActive) return;
+    const buf = new Float32Array(this.analyser.fftSize);
+    this.analyser.getFloatTimeDomainData(buf);
+
+    const raw = this.autoCorrelate(buf, this.audioCtx.sampleRate);
+    if (raw !== -1 && raw > 65 && raw < 900) {
+      this.freqHistory.push(raw);
+      if (this.freqHistory.length > 5) this.freqHistory.shift();
+      const smooth = this.freqHistory.reduce((a, b) => a + b, 0) / this.freqHistory.length;
+      this.updateTunerUI(smooth);
+    }
+    requestAnimationFrame(() => this.pitchLoop());
+  }
+
+  autoCorrelate(buf, sampleRate) {
+    let size = buf.length;
+    let rms = 0;
+    for (let i = 0; i < size; i++) rms += buf[i] * buf[i];
+    if (Math.sqrt(rms / size) < 0.015) return -1;
+
+    let r1 = 0, r2 = size - 1, thres = 0.2;
+    for (let i = 0; i < size / 2; i++) if (Math.abs(buf[i]) < thres) { r1 = i; break; }
+    for (let i = 1; i < size / 2; i++) if (Math.abs(buf[size - i]) < thres) { r2 = size - i; break; }
+    buf = buf.slice(r1, r2);
+    size = buf.length;
+
+    const c = new Float32Array(size);
+    for (let i = 0; i < size; i++) {
+      for (let j = 0; j < size - i; j++) c[i] += buf[j] * buf[j + i];
+    }
+
+    let d = 0;
+    while (c[d] > c[d + 1]) d++;
+    let maxval = -1, maxpos = -1;
+    for (let i = d; i < size; i++) {
+      if (c[i] > maxval) { maxval = c[i]; maxpos = i; }
+    }
+    return sampleRate / maxpos;
+  }
+
+  updateTunerUI(freq) {
+    const strings = [
+      { note: 'E2', freq: 82.41 }, { note: 'A2', freq: 110.00 },
+      { note: 'D3', freq: 146.83 }, { note: 'G3', freq: 196.00 },
+      { note: 'B3', freq: 246.94 }, { note: 'E4', freq: 329.63 }
+    ];
+
+    const closest = strings.reduce((prev, curr) =>
+      Math.abs(curr.freq - freq) < Math.abs(prev.freq - freq) ? curr : prev
+    );
+
+    const cents = Math.round(1200 * Math.log2(freq / closest.freq));
+    const clampedCents = Math.max(-50, Math.min(50, cents));
+
+    document.getElementById('tunerNoteBadge').textContent = closest.note;
+    document.getElementById('tunerFreqReadout').textContent = `${freq.toFixed(1)} Hz`;
+
+    const bubble = document.getElementById('gtNeedleBubble');
+    const centerLine = document.getElementById('gtCenterLine');
+    const box = document.getElementById('tensionBox');
+
+    bubble.style.left = `${50 + clampedCents * 0.85}%`;
+    bubble.textContent = cents > 0 ? `+${cents}` : cents;
+
+    if (Math.abs(cents) <= 4) {
+      bubble.classList.add('in-tune');
+      centerLine.classList.add('in-tune');
+      box.textContent = '✅ ¡CUERDA PERFECTAMENTE AFINADA!';
+      box.style.color = 'var(--accent-green)';
+    } else {
+      bubble.classList.remove('in-tune');
+      centerLine.classList.remove('in-tune');
+      box.textContent = cents < 0 ? '⬆️ CUERDA GRAVE: Aprieta un poco la clavija' : '⬇️ CUERDA AGUDA: Afloja un poco la clavija';
+      box.style.color = cents < 0 ? 'var(--accent-blue)' : 'var(--warning)';
+    }
+  }
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  window.app = new KakoYousicianApp();
+});
 </script>
 </body>
 </html>
